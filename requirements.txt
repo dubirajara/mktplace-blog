@@ -1,0 +1,4 @@
+-e git://github.com/darklow/django-suit.git@v2#egg=django-suit
+Django==1.11.5
+django-summernote==0.8.8.2
+-e git+https://github.com/radiac/django-tagulous.git@feature/django-1_11#egg=django-tagulous
