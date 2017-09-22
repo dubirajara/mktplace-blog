@@ -44,3 +44,6 @@ class Post(models.Model):
         if not self.id:
             self.slug = self.get_unique_slug()
         super(Post, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return r('post_details', slug=self.slug)

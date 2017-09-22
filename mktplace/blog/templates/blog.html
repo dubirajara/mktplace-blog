@@ -4,4 +4,28 @@
 
 {% block content %}
   <h2>Blog</h2>
+<ul>
+    {% for post in posts %}
+    <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
+    <h5>By:{{ post.user.username }}</h5>
+    <p>{{ post.content|safe|linebreaks|truncatewords:"20" }}</p>
+    {% endfor %}
+</ul>
+<div class="pagination">
+    <ul>
+        {% if paginator.has_previous %}
+        <li><a href="?page={{ paginator.previous_page_number }}">Previous</a></li>
+        {% endif %}
+        {% for pg in paginator.page_range %}
+        {% if paginator.number == pg %}
+        <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
+        {% else %}
+        <li><a href="?page={{ pg }}">{{ pg }}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% if paginator.has_next %}
+        <li><a href="?page={{ paginator.next_page_number }}">Next</a></li>
+        {% endif %}
+    </ul>
+</div>
 {% endblock %}
