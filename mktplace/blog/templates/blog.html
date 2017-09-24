@@ -1,31 +1,69 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}Blog{% endblock %}
 
 {% block content %}
-  <h2>Blog</h2>
-<ul>
-    {% for post in posts %}
-    <h1><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
-    <h5>By:{{ post.user.username }}</h5>
-    <p>{{ post.content|safe|linebreaks|truncatewords:"20" }}</p>
+				<br>
+				<br>
+				<br>
+              <div class="row text-center clearfix">
+                <div class="col-sm-8 col-sm-offset-2">
+                  <h2 class="title-one">Our Blog</h2><br><br>
+                </div>
+                </div>
+				<div class="row striped">
+                {% for post in posts %}
+                <div class="col-sm-4">
+                  <div class="single-blog">
+                    <img src="{{ post.photo }}" class="img-responsive" alt="image">
+                    <h2>{{ post.title }}</h2>
+                    <ul class="post-meta">
+                      <li><i class="fa fa-pencil-square-o"></i><strong> Posted By:</strong> {{ post.user.username }}</li>
+                      <li><i class="fa fa-clock-o"></i><strong> Posted On:</strong> {{ post.created_at }}</li>
+                    </ul>
+                    <div class="blog-content">
+                      <p>{{ post.content|safe|truncatewords:"20" }}</p>
+                    </div>
+                    <a href="{{ post.get_absolute_url }}" class="btn btn-info" role="button">Ler Mas</a>
+                </div>
+              </div>
+                  {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                  </div><br><div class="row">
+      {% endif %}
     {% endfor %}
+    </div>
+    
+<div class="row text-center"></div>
+<br>
+
+<div class="row text-center">
+<ul class="pager">
+  <li>
+    {% if page_obj.has_previous %}
+         <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+         {% else %}
+            <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+        </li>
+        {% for i in paginator.page_range %}
+                  {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+            {% endfor %}
+  <li>
+    {% if page_obj.has_next %}
+       <a href="?page={{ page_obj.next_page_number }}">Next</a>
+       {% else %}
+                <li class="disabled"><span>&raquo;</span></li> 
+      {% endif %}
+    </li>
 </ul>
-<div class="pagination">
-    <ul>
-        {% if paginator.has_previous %}
-        <li><a href="?page={{ paginator.previous_page_number }}">Previous</a></li>
-        {% endif %}
-        {% for pg in paginator.page_range %}
-        {% if paginator.number == pg %}
-        <li class="active"><a href="?page={{ pg }}">{{ pg }}</a></li>
-        {% else %}
-        <li><a href="?page={{ pg }}">{{ pg }}</a></li>
-        {% endif %}
-        {% endfor %}
-        {% if paginator.has_next %}
-        <li><a href="?page={{ paginator.next_page_number }}">Next</a></li>
-        {% endif %}
-    </ul>
 </div>
+
+</div>
+
 {% endblock %}
