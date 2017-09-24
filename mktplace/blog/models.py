@@ -8,6 +8,7 @@ import tagulous.models
 
 class Post(models.Model):
     user = models.ForeignKey(User)
+    photo = models.URLField('Image', null=True)
     title = models.CharField("Titulo", max_length=255)
     content = models.TextField("Contenido", blank=True)
     slug = models.SlugField("Slug", max_length=255)
