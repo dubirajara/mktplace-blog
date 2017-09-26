@@ -4,7 +4,6 @@
 
 {% block content %}
 
-  <h2>Blog Post</h2>
     <h1>{{ posts.title }}</a></h1>
     <h5>By:{{ posts.user.username }}</h5>
     <p>{{ posts.content|safe|linebreaks }}</p>

@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load humanize %}
+
 {% block title %}Blog{% endblock %}
 
 {% block content %}
@@ -17,11 +19,12 @@
                 {% for post in posts %}
                 <div class="col-sm-4">
                   <div class="single-blog">
-                    <img src="{{ post.photo }}" class="img-responsive" alt="image">
+                    <img src="{{ post.photo }}" class="img-thumbnail" alt="image">
                     <h2>{{ post.title }}</h2>
                     <ul class="post-meta">
                       <li><i class="fa fa-pencil-square-o"></i><strong> Posted By:</strong> {{ post.user.username }}</li>
-                      <li><i class="fa fa-clock-o"></i><strong> Posted On:</strong> {{ post.created_at }}</li>
+                      <br>
+                      <li><i class="fa fa-clock-o"></i><strong> Posted On:</strong> {{ post.created_at|naturaltime }}</li>
                     </ul>
                     <div class="blog-content">
                       <p>{{ post.content|safe|truncatewords:"20" }}</p>
