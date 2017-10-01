@@ -144,15 +144,21 @@
 		margin-right:0;
 		width:100%
 	}
-	#main-carousel .carousel-inner h2{
+	#main-carousel .carousel-inner h2 {
+		border-bottom: 0;
+		font-size: 17px;
+		padding-top: 60px;
+	}
+
+	#main-carousel .carousel-inner p{
 		border-bottom:0;
-		font-size:30px
+		font-size:14px;
 	}
 	.slider-btn{
-		font-size:16px;
-		height:45px;
-		line-height:45px;
-		width:150px
+	font-size: 12px;
+    height: 32px;
+    line-height: 33px;
+    width: 120px;
 	}
 	.title-one{
 		font-size:24px
