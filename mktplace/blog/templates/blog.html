@@ -25,13 +25,14 @@
                       <li><i class="fa fa-clock-o"></i> {{ post.created_at|naturaltime }}</li>
                     </ul>
                     <div class="blog-content">
-                      <p>{{ post.content|safe|truncatewords:"20" }}</p>
+                      <p>{{ post.content|safe|truncatewords:"40" }}</p>
                     </div>
                     <a href="{{ post.get_absolute_url }}" class="btn btn-primary" role="button">Ler Mas</a>
                 </div>
               </div>
                   {% if forloop.counter|divisibleby:3 and not forloop.last %}
-                  </div><br><div class="row">
+                      </div><div class="row"></div>
+
       {% endif %}
     {% endfor %}
     </div>

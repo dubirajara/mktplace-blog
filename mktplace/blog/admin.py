@@ -6,11 +6,11 @@ from .models import Post
 
 
 class PostAdmin(SummernoteModelAdmin):
-    list_display = ('title', 'active')
+    list_display = ('title', 'active', 'created_at')
     list_editable = ('active',)
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}
 
-admin.site.site_header = 'The Market Place Admin'
-admin.site.site_title = 'The Market Place Admin'
+admin.site.site_header = 'The Marketing Place Admin'
+admin.site.site_title = 'The Marketing Place Admin'
 admin.site.register(Post, PostAdmin)
