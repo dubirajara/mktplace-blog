@@ -11,5 +11,6 @@ class PostAdmin(SummernoteModelAdmin):
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}
 
-admin.site.site_header = 'MKT Place Admin'
+admin.site.site_header = 'The Market Place Admin'
+admin.site.site_title = 'The Market Place Admin'
 admin.site.register(Post, PostAdmin)

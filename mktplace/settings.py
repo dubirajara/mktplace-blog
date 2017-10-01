@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+from decouple import config, Csv
+from dj_database_url import parse as dburl
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,12 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'm!9byclmcoc$h97%jttx=ccmw1lye#m^tidy0md-*+-c_k07!^'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
 
 
 # Application definition
@@ -40,7 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+
+    #Third-party apps
     'tagulous',
+    'cookielaw',
+
+    #my apps
     'mktplace.core',
     'mktplace.blog',
 ]
@@ -79,11 +87,10 @@ WSGI_APPLICATION = 'mktplace.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': config('DATABASE_URL',  default=default_dburl, cast=dburl),
 }
 
 
@@ -126,11 +133,31 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticsfiles')
 
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media/')
+
+# Tagulous configuration
+
+SERIALIZATION_MODULES = {
+    'xml': 'tagulous.serializers.xml_serializer',
+    'json': 'tagulous.serializers.json',
+    'python': 'tagulous.serializers.python',
+    'yaml': 'tagulous.serializers.pyyaml',
+}
+
+# Django Suit configuration
+
 SUIT_CONFIG = {
     'SHOW_REQUIRED_ASTERISK': True,
     'MENU_EXCLUDE': ('auth.group', 'auth'),
     }
 
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media/')
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# DEFAULT_FROM_EMAIL = 'testing@example.com'
+# EMAIL_HOST_USER = ''
+# EMAIL_HOST_PASSWORD = ''
+# EMAIL_USE_TLS = False
+# EMAIL_PORT = 1025

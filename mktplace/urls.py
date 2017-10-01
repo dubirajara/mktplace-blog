@@ -18,11 +18,14 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
+from mktplace.core.views import HomeView, ThanksContactView
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^$', HomeView.as_view(), name='home'),
+    url(r'^mkplaceadmin/', admin.site.urls),
     url(r'^blog/', include('mktplace.blog.urls')),
     url(r'^summernote/', include('django_summernote.urls')),
+    url(r'^success/$', ThanksContactView.as_view()),
 ]
 
 if settings.DEBUG:

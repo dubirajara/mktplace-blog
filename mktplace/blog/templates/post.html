@@ -1,11 +1,25 @@
-{% extends 'base.html' %}
+{% extends 'baseblog.html' %}
+
+    {% load static %}
+
+{% load humanize %}
 
 {% block title %}Blog{% endblock %}
 
 {% block content %}
 
-    <h1>{{ posts.title }}</a></h1>
-    <h5>By:{{ posts.user.username }}</h5>
-    <p>{{ posts.content|safe|linebreaks }}</p>
+    <div class="row text-center" style="padding-top: 120px;">
+<div class="col-sm-8 col-sm-offset-2">
+<img class="img-responsive center-block" src="{{ posts.photo }}" alt="Image">
+<h1>{{ posts.title }}</h1>
+    <span><i class="fa fa-clock-o"></i> {{ posts.created_at|naturaltime }}</span>
+
+          <!-- Post Content -->
+          <p>{{ posts.content|safe|linebreaks }}</p>
+
+          <hr>
+
+</div>
+    </div>
 
 {% endblock %}

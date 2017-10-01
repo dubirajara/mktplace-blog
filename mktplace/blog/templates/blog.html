@@ -1,18 +1,18 @@
-{% extends 'base.html' %}
+{% extends 'baseblog.html' %}
 
 {% load static %}
 
 {% load humanize %}
 
-{% block title %}Blog{% endblock %}
+{% block title %}The Marketing Place Blog{% endblock %}
 
 {% block content %}
 				<br>
 				<br>
 				<br>
-              <div class="row text-center clearfix">
+              <div class="row text-center clearfix" style="padding-top: 30px;">
                 <div class="col-sm-8 col-sm-offset-2">
-                  <h2 class="title-one">Our Blog</h2><br><br>
+                  <h2 class="title-one">Blog</h2><br><br>
                 </div>
                 </div>
 				<div class="row striped">
@@ -22,14 +22,12 @@
                     <img src="{{ post.photo }}" class="img-thumbnail" alt="image">
                     <h2>{{ post.title }}</h2>
                     <ul class="post-meta">
-                      <li><i class="fa fa-pencil-square-o"></i><strong> Posted By:</strong> {{ post.user.username }}</li>
-                      <br>
-                      <li><i class="fa fa-clock-o"></i><strong> Posted On:</strong> {{ post.created_at|naturaltime }}</li>
+                      <li><i class="fa fa-clock-o"></i> {{ post.created_at|naturaltime }}</li>
                     </ul>
                     <div class="blog-content">
                       <p>{{ post.content|safe|truncatewords:"20" }}</p>
                     </div>
-                    <a href="{{ post.get_absolute_url }}" class="btn btn-info" role="button">Ler Mas</a>
+                    <a href="{{ post.get_absolute_url }}" class="btn btn-primary" role="button">Ler Mas</a>
                 </div>
               </div>
                   {% if forloop.counter|divisibleby:3 and not forloop.last %}

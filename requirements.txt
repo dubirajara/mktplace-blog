@@ -1,4 +1,11 @@
--e git://github.com/darklow/django-suit.git@v2#egg=django-suit
 Django==1.11.5
+dj-config-url==0.1.1
+dj-database-url==0.4.2
+dj-static==0.0.6
+django-cookie-law==1.0.13
 django-summernote==0.8.8.2
+gunicorn==19.7.1
+psycopg2==2.7.3.1
+python-decouple==3.1
+-e git://github.com/darklow/django-suit.git@v2#egg=django-suit
 -e git+https://github.com/radiac/django-tagulous.git@feature/django-1_11#egg=django-tagulous

@@ -1,0 +1,392 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load staticfiles cookielaw_tags %}
+
+{% load humanize %}
+
+<link href="{% static "cookielaw/css/cookielaw.css"%}" rel="stylesheet" />
+
+{% block content %}
+
+	<section id="home">
+		<div class="home-pattern"></div>
+		<div id="main-carousel" class="carousel slide" data-ride="carousel">
+
+			<ol class="carousel-indicators">
+				<li data-target="#main-carousel" data-slide-to="0" class="active"></li>
+				<li data-target="#main-carousel" data-slide-to="1"></li>
+				<li data-target="#main-carousel" data-slide-to="2"></li>
+				<li data-target="#main-carousel" data-slide-to="3"></li>
+
+			</ol><!--/.carousel-indicators--> 
+			<div class="carousel-inner">
+				<div class="item active" style="background-image: url({% static 'images/slider/slide4.jpg' %})">
+					<div class="carousel-caption">
+						<div> 
+							<h2 class="heading animated bounceInRight">Conviertete En El Lider De Tu Sector</h2> 
+							<p class="animated bounceInLeft"><em>"El secreto no es correr detrás de las mariposas, es cuidar del jardín para que ellas vengan a ti."</em></p> 
+							<a class="btn btn-default slider-btn animated bounceInUp" href="#contact">Contáctanos</a> 
+						</div> 
+					</div>
+				</div>
+				<div class="item" style="background-image: url({% static 'images/slider/slide3.jpg' %})">
+					<div class="carousel-caption"> 
+						<div> 
+							<h2 class="heading animated bounceInRight">Hablanos De Tu Negocio Y Te Diremos Como Transformar Tu Sueño De Éxito En Realidad. </h2> 
+							<p class="animated bounceInLeft"><em>"Ahora no es momento de pensar en lo que no tienes. Piensa en lo que puedes hacer con lo que hay."– Ernest Hemingway</em></p> 
+							<a class="btn btn-default slider-btn animated bounceInUp" href="#services">Consultoria</a> 
+						</div> 
+					</div> 
+				</div>
+				<div class="item" style="background-image: url({% static 'images/slider/slide2.jpg' %})">
+					<div class="carousel-caption"> <div> 
+						<h2 class="heading animated bounceInRight">Ponemos En Marcha Tu Estrategia De Marketing, Tanto On-Line Como Off-Line.</h2> 
+						<p class="animated bounceInLeft"><em>"Todos los triunfos nacen cuando nos atrevemos a comenzar." – Eugene Ware</em></p> <a class="btn btn-default slider-btn animated bounceInUp" href="#services">Soluciones</a> 
+					</div> 
+				</div> 
+			</div> 
+			<div class="item" style="background-image: url({% static 'images/slider/slide1.jpg' %})">
+				<div class="carousel-caption"> 
+					<div> 
+						<h2 class="heading animated bounceInRight">THE MARKETING PLACE</h2> 
+						<p class="animated bounceInLeft">EL ARTE DE LA COMUNICACIÓN</p> 
+						<a class="btn btn-default slider-btn animated bounceInUp" href="#about-us">Nosotros</a> 
+					</div> 
+				</div> 
+			</div>
+		</div><!--/.carousel-inner-->
+
+		<a class="carousel-left member-carousel-control hidden-xs" href="#main-carousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+		<a class="carousel-right member-carousel-control hidden-xs" href="#main-carousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
+
+
+	</div>
+
+</section><!--/#home-->
+
+<section id="services" class="parallax-section">
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-sm-8 col-sm-offset-2">
+					<h2 class="title-one">Servicios</h2>
+					<p>Si consideras que podrías alcanzar una cuota de mercado más amplia, pero no sabes como, o quieres poner en marcha una estrategia de marketing on-line, pero no encuentras todas la información que necesitas, ponte en contacto con nosotros, somos expertos en marketing estratégico y áreas relacionadas.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="our-service">
+						<div class="colorh2 services row">
+							<div class="col-sm-4">
+								<div class="single-service">
+									<i class="fa fa-search-plus"></i>
+									<h2>Consultoria</h2>
+									<p>Nuestros consultores tiene una dilatada experiencia en proporcionar una amplia gama de consultorías y soluciones innovadoras a clientes de todos los sectores y con diferentes alcances.
+									Nuestras consultorías abarcan 3 puntos fundamentales de tu negocio: el proceso de ventas, el proceso de marketing y la infraestructura tecnológica.
+									Desde esta visión, ofrecemos consejos sobre las posibles acciones de mejoras.
+									Cada acción de mejora detectada se asocia a un parámetro para medir su eficacia (ROI).
+									</p>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="single-service">
+									<i class="fa fa-html5"></i>
+									<h2>Desarrollo Web</h2>
+									<p>Hoy en día, la página web es protagonista principal de nuestra marca.
+									No hay empresa de prestigio que no tenga su página web.
+									Pero no es suficiente con tener una página web cualquiera, tiene que estar adaptada a las nuevas tecnologías.  Si el diseño de la página no es bueno o no aparece bien posicionada en los resultados de búsqueda de Google, los costes ahorrados en el desarrollo, se perderán en clientes a los que nunca llegaremos o a los que no captaremos por la mala imagen que les dé nuestra página web.
+									</p>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="single-service">
+									<i class="fa fa-cloud"></i>
+									<h2>Hospedaje en la nube</h2>
+									<p>Los expertos, en campañas de AdWords (Google), dicen que el tiempo de carga de una página web es un parámetro fundamental para valorar la calidad de la misma.  Una página web bien diseñada nos permitirá ahorrar dinero y que seamos conocidos por un mayor número de personas.</p>
+								</div>
+							</div></div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+				<div class="col-sm-12">
+				<div class="our-service">
+				<div class="colorh2 services row">
+							<div class="col-sm-4">
+								<div class="single-service">
+									<i class="fa fa-vimeo"></i>
+									<h2>Video, Presentaciones, Catálogos on-line</h2>
+									<p>No hay nada que requiera más tiempo y dedicación, que hacer entender a una empresa que realiza video, animaciones o catálogos, cuál es tu producto o servicio, especialmente si estamos hablando de un producto biotecnológico o farmacéutico.
+									Por eso es fundamental encontrar profesionales que hablen tu lenguaje o dejar tu proyecto en las manos de los consultores de THE MARKETING PLACE.
+									</p>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="single-service">
+									<i class="fa fa-line-chart"></i>
+									<h2>Google Analytics y Big Data</h2>
+									<p>Es fundamental conocer las necesidades de tu público objetivo. Si sabes exactamente qué necesita tu cliente, cuál es su comportamiento de compra, cuáles son los productos más atractivos, será muy fácil satisfacer sus necesidades y adelantarte a la competencia.
+									Este conocimiento está presente en la red a disposición de las empresas, solo hay que saber dónde encontrar los datos y cómo interpretarlos.
+									</p>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="single-service">
+									<i class="fa fa-pie-chart"></i>
+									<h2>Estudio de Mercado</h2>
+									<p>No es fácil lanzar un producto/servicio o empezar a vender en un nuevo mercado.
+									Si te encuentras en este dilema, considera que cuantos más datos conozcas, más fácil será tomar la decisión correcta.
+									Para eso puedes consultar un estudio de mercado.
+									Aquí encontrarás una selección de empresas que se dedican a eso. Y desde THE MARKETING PLACE te damos un consejo, destina el 10% de tu nuevo proyecto a la búsqueda de información, no te arrepentirás.
+									</p>
+								</div>
+							</div></div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+				<div class="col-sm-12">
+				<div class="our-service">
+					<div class="colorh2 services row">
+							<div class="col-sm-4">
+								<div class="single-service">
+									<i class="fa fa-users"></i>
+									<h2>Redes Sociales y Contenidos</h2>
+									<p>¡Redes sociales sí, redes sociales no!
+									Desde luego, posicionarse ante la competencia, requiere muchas horas dedicadas a generar contenido. ¡Pero todas las grandes empresas se esfuerzan para estar presentes en las redes sociales, por algo será!
+									THE MARKETING PLACE pone a tu disposición profesionales que se dedican a esta labor, para que tú puedas continuar con tu negocio y a la vez posicionarte en las redes sociales.
+									</p>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="single-service">
+									<i class="fa fa-book"></i>
+									<h2>Imagen Corporativa, Catálogos, Merchandising</h2>
+									<p>¡No hay cosa más decepcionante, que llegar a una feria, mirar tu stand y darte cuenta de que tu logo es del color equivocado o está completamente desenfocado!
+									Para evitar ciertas situaciones, es mejor dedicar parte de tu presupuesto a tu imagen corporativa.
+									Luego será mucho más fácil diseñar un catálogo profesional y tener tu propio merchandising.
+									No dudes, déjate ayudar por profesionales.
+									</p>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="single-service">
+									<i class="fa fa-file-text"></i>
+									<h2>Divulgación Científica</h2>
+									<p>Hoy en día estamos asistiendo a un cambio de paradigma, la medicina convencional se está transformando en medicina personalizada o de precisión. El Big Data nos ofrece información importante que no puede ser desperdiciada. En este nuevo escenario demostrar la efectividad de una solución terapéutica con datos de la vida real es fundamental y de obligación para la sostenibilidad del Sistema Nacional de Salud.
+                                        Te ayudamos en divulgar tus avances científicos, no dudes en llamarnos.
+									</p>
+								</div>
+							</div></div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+				<div class="col-sm-12">
+				<div class="our-service">
+					<div class="colorh2 services row">
+							<div class="col-sm-4">
+								<div class="single-service">
+									<i class="fa fa-comments"></i>
+									<h2>Stands para eventos/ferias</h2>
+									<p>“Recuerdo perfectamente un stand nada especial, hasta el momento en el que conecté una estantería giratoria.  Como por magia, la gente se paraba a mirarla y esto daba pie a los comerciales, a iniciar una conversación sobre la empresa y sus productos”.  (Daniela Albero, THE MARKETING PLACE).
+									Un stand perfectamente pensado y diseñado, puede marcar la diferencia entre una feria exitosa o no.
+									</p>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="single-service">
+									<i class="fa fa-globe"></i>
+									<h2>Marketing para la Internacionalización</h2>
+									<p>No es fácil hacer negocios en un país diferente al tuyo.
+										Hay que conocer los precios objetivos de tus productos/servicios, ya que a menudo son distintos, la competencia, los key opinion leader, la burocracia, las leyes, el comportamiento de tu público objetivo, sus costumbres...
+										La internacionalización requiere un amplio estudio del nuevo mercado. Hay muchas herramientas que pueden ayudarte a ello, pero es mejor confiar en empresas que conocen en profundidad el país en el cual quieres entrar.
+									</p>
+								</div>
+							</div>
+							<div class="col-sm-4">
+								<div class="single-service">
+									<i class="fa fa-bullhorn"></i>
+									<h2>SEO, SEM, Campañas Adwords</h2>
+									<p>Tener una buena estrategia de Marketing on line es fundamental para mejorar tu visibilidad en Internet.
+									Si quieres que tu público objetivo te encuentre, no hay nada más efectivo que una campaña de Adwords. En Google se realizan 3 billones de búsquedas diarias, ostenta más del 90% de la cuota de mercado de los motores de búsqueda.
+									Hay muchas empresas que se dedican al desarrollo de las estrategias de marketing on-line.
+									</p>
+								</div>
+							</div></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section><!--/#service-->
+
+<section id="about-us">
+	<div class="container">
+		<div class="text-center">
+			<div class="col-sm-8 col-sm-offset-2">
+				<h2 class="title-one">Sobre Nosotros</h2>
+				<p style="text-align: justify;">THE MARKETING PLACE nace por la necesidad, detectada por directivos de ventas y marketing, de organizar en un único sitio, todas las herramientas necesarias para crear y transmitir un mensaje empresarial único y distintivo, a su público objetivo.<br><br>
+				Estamos experimentando un crecimiento exponencial de empresas, que se dan a conocer y hacen negocio on-line. Hoy en día se utilizan cada vez más las redes sociales e internet.<br><br>
+				El marketing digital es cada día más complejo e importante. 
+				Las empresas pequeñas y medianas,  difícilmente pueden alcanzar por sí mismas, el conocimiento necesario para conseguir una presencia significativa, en este mundo en contínua evolución.<br><br></p><p>¡Hasta ahora!
+				</p>
+			</div>
+		</div>
+
+		<div class="about-us">
+			<div class="row">
+				<div class="col-sm-6">
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#about" data-toggle="tab"><i class="fa fa-check"></i> Visión</a></li>
+						<li><a href="#mission" data-toggle="tab"><i class="fa fa-handshake-o"></i> Misión</a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane fade in active" id="about">
+							<div class="media">
+								<center><img class="pull-left media-object" src="{% static 'images/about-us/about.jpg' %}" style="height:150px; width:200px" alt="about us"></center>
+								<div class="media-body">
+									<p>Te explicamos qué deberías hacer para mejorar tu presencia en tu mercado, y además ponemos a tu disposición las mejores empresas de cada campo, para que puedas llevar adelante tu estrategia de marketing, tanto on-line como off-line.</p>
+								</div>
+								<p>Vive la experiencia de tener un departamento de marketing completo a tu disposición y un equipo de audiovisuales, un departamento informático, una empresa de hosting, una agencia de publicidad, una imprenta, unos creativos...<br><br>
+								THE MARKETING PLACE es una empresa joven, pero constituida por profesionales con un amplio recorrido en entornos comerciales y de marketing, tanto a nivel nacional como  internacional.<br><br>
+								Nos focalizamos de manera distinta en cada sector profesional y, ya que tenemos un amplia experiencia en empresas biotecnológicas y farmacéuticas, encontrarás secciones de nuestra web dedicadas a ellas.
+								</p>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="mission">
+							<div class="media">
+							<center>
+								<img class="pull-left media-object" src="{% static 'images/about-us/mission.jpg' %}" style="height:150px; width:200px" alt="Mission">
+							</center>
+								<div class="media-body">
+									<p>Para tener éxito, los factores implicados son múltiples: un buen desarrollo de la página web, su hospedaje, el posicionamiento de la misma, la presencia en redes sociales, el uso de buscadores, la creación de una buena imagen de marca...
+									</p>
+								</div>
+								<p>Ya no es solo cuestión de ofrecer un catálogo de productos y contratar talentosos comerciales! Hay que adaptarse a las nuevas tecnologías, gestionar un canal de videos, una página web funcional  adaptada para móviles y tablet, un catálogo on-line que se cargue con facilidad y manejar conceptos como el remarketing, la red de búsqueda y la red de display, entre otros.<br><br>
+								Además, la información para crear una estrategia de marketing digital, está desperdigada por Internet y hay que involucrar muchas empresas expertas en cada campo, para realizar un único proyecto. 
+								Localizar dichas empresas y hacer que trabajen como un conjunto, es una tarea ardua que requiere tiempo y conocimientos globales, no solo de marketing, sino de informática, comunicaciones,  big data...<br><br>
+								Si se quiere llevar adelante una estrategia de marketing on-line y no morir en el intento, o gastar dinero sin un retorno de la inversión, sería útil hablar con un experto, que te asesore en todas esas áreas implicadas y que coordine, si así lo deseas, a los equipos implicados.<br>
+								Eso es lo que ofrecemos desde THE MARKETING PLACE.<br><br>
+								Habla con un experto, uno de nuestros consultores te puede ayudar. 
+								</p>
+						</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-6"><br><br>
+					<div class="skill-bar">
+						<div class="skillbar clearfix " data-percent="90%">
+							<div class="skillbar-title">
+								<span>Consultoria</span>
+							</div>
+							<div class="skillbar-bar"></div>
+							<div class="skill-bar-percent">90%</div>
+						</div> <!-- End Skill Bar -->
+						<div class="skillbar clearfix" data-percent="85%">
+							<div class="skillbar-title"><span>Marketing</span></div>
+							<div class="skillbar-bar"></div>
+							<div class="skill-bar-percent">85%</div>
+						</div> <!-- End Skill Bar -->
+						<div class="skillbar clearfix " data-percent="70%">
+							<div class="skillbar-title"><span>Analytics</span></div>
+							<div class="skillbar-bar"></div>
+							<div class="skill-bar-percent">70%</div>
+						</div> <!-- End Skill Bar -->
+						<div class="skillbar clearfix " data-percent="60%">
+							<div class="skillbar-title"><span>Contenidos</span></div>
+							<div class="skillbar-bar"></div>
+							<div class="skill-bar-percent">60%</div>
+						</div> <!-- End Skill Bar -->
+						<div class="skillbar clearfix " data-percent="75%">
+							<div class="skillbar-title"><span>Desarrollo Web</span></div>
+							<div class="skillbar-bar"></div>
+							<div class="skill-bar-percent">75%</div>
+						</div> <!-- End Skill Bar --></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section><!--/#about-us-->
+
+					<section id="blog"> 
+	              <div class="row text-center clearfix">
+                <div class="col-sm-8 col-sm-offset-2" style="padding-bottom: 30px;">
+                  <h2 class="title-one"><a href="{% url 'post_list' %}">Blog</a></h2>
+                </div>
+                </div>
+				<div class="row striped">
+                {% for post in posts %}
+                <div class="col-sm-4">
+                  <div class="single-blog">
+                    <img src="{{ post.photo }}" class="img-thumbnail" alt="image">
+                    <h2>{{ post.title }}</h2>
+                    <ul class="post-meta">
+                      <li><i class="fa fa-clock-o"></i> {{ post.created_at|naturaltime }}</li>
+                    </ul>
+                    <div class="blog-content">
+                      <p>{{ post.content|safe|truncatewords:"20" }}</p>
+                    </div>
+                    <a href="{{ post.get_absolute_url }}" class="btn btn-primary" role="button">Ler Mas</a>
+                </div>
+              </div>
+                  {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                  </div><br><div class="row">
+      {% endif %}
+    {% endfor %}
+    </div>
+						</section> <!--/#blog-->
+
+						<section id="contact">
+							<div class="container">
+								<div class="row text-center clearfix">
+									<div class="col-sm-8 col-sm-offset-2">
+										<div class="contact-heading">
+											<h2 class="title-one">Contacta con nosotros</h2>
+											<p>Si necesitas más información sobre nuestra empresa o sobre nuestro servicios, ponte en contacto con nosotros hoy mismo a través del siguiente formulario, o llámanos. Estaremos encantados de atenderte.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="container">
+								<div class="contact-details">
+									<div class="pattern"></div>
+									<div class="row text-center clearfix">
+										<div class="col-sm-6">
+											<div class="contact-address">
+											<img src="{% static 'images/logo.png' %}" height="130" width="185" alt="logo"></a><br>
+												<div class="social-icons">
+													<a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a>
+													<a href="#"><i class="fa fa-google-plus"></i></a><a href="#"><i class="fa fa-dribbble"></i></a>
+													<a href="#"><i class="fa fa-linkedin"></i></a>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-6"> 
+											<div id="contact-form-section">
+												<div class="status alert alert-success" style="display: none"></div>
+												<form id="contact-form" class="contact" name="contact-form" method="POST" action=https://formspree.io/contacto@themarketingplace.es" target="_blank">
+													<div class="form-group">
+														<input type="text" name="name" class="form-control name-field" required="required" placeholder="Nombre"></div>
+														<div class="form-group">
+															<input type="email" name="email" class="form-control mail-field" required="required" placeholder="Correo">
+														</div>
+														<div class="form-group">
+															<textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Mensaje"></textarea>
+														</div>
+														<div class="form-group">
+															<button type="submit" class="btn btn-primary">Enviar</button>
+                                                            <input type="hidden" name="_next" value="http://themarketingplace/success/" />
+														</div>
+													</form>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div> 
+							</section> <!--/#contact-->
+{% cookielaw_banner %}
+
+    <script src="{% static "cookielaw/js/cookielaw.js"%}" type="text/javascript"></script>
+
+{% endblock %}
