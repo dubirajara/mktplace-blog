@@ -146,19 +146,20 @@
 	}
 	#main-carousel .carousel-inner h2 {
 		border-bottom: 0;
-		font-size: 25px;
-		padding-top: 60px;
+		font-size: 20px;
+		padding-top: 65px;
 	}
 
 	#main-carousel .carousel-inner p{
 		border-bottom:0;
-		font-size:19px;
+		font-size:15px;
 	}
 	.slider-btn{
-	font-size: 12px;
-    height: 32px;
-    line-height: 33px;
+	font-size: 14px;
+    height: 35px;
+    line-height: 35px;
     width: 120px;
+		margin-bottom: 120px;
 	}
 	.title-one{
 		font-size:24px
