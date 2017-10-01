@@ -1,1 +1,1 @@
-web: gunicorn mkplace.wsgi --log-file -
+web: gunicorn mktplace.wsgi --log-file -
