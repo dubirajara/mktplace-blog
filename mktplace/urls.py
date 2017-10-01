@@ -22,7 +22,7 @@ from mktplace.core.views import HomeView, ThanksContactView
 
 urlpatterns = [
     url(r'^$', HomeView.as_view(), name='home'),
-    url(r'^mkplaceadmin/', admin.site.urls),
+    url(r'^mktplaceadmin/', admin.site.urls),
     url(r'^blog/', include('mktplace.blog.urls')),
     url(r'^summernote/', include('django_summernote.urls')),
     url(r'^success/$', ThanksContactView.as_view()),
