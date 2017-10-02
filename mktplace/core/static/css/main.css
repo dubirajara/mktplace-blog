@@ -601,7 +601,7 @@ h1, h2, h3, h4, h5, h6 {
 #services {
 	color: #43484E;
   text-align:center;
-	background: #0A0A13 url("../images/services/service-bg.jpg") repeat;
+	background: #fff;
 }
 
 .services {
