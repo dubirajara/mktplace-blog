@@ -8,15 +8,44 @@
 {% block content %}
 
     <div class="row text-center" style="padding-top: 200px;">
-<div class="col-sm-8 col-sm-offset-2" style="padding-bottom: 335px;">
+<div class="col-sm-8 col-sm-offset-2" style="padding-bottom: 310px;">
     <hr>
     <h3><em>Gracias por contactar con nosotros. En breve te contestaremos.</em></h3>
+    <p>Serás redirecionado a la pagina inicial en <span id="timecount"></span> segundos!</p>
 
           <hr>
 
 </div>
     </div>
 
+
+<script type="text/javascript">
+var time = 10; // Time coutdown
+var page = "{% url 'home' %}";
+function countDown(){
+time--;
+gett("timecount").innerHTML = time;
+if(time == -1){
+window.location = page;
+}
+}
+function gett(id){
+if(document.getElementById) return document.getElementById(id);
+if(document.all) return document.all.id;
+if(document.layers) return document.layers.id;
+if(window.opera) return window.opera.id;
+}
+function init(){
+if(gett('timecount')){
+setInterval(countDown, 1000);
+gett("timecount").innerHTML = time;
+}
+else{
+setTimeout(init, 50);
+}
+}
+document.onload = init();
+
+</script>
+
 {% endblock %}
-
-
