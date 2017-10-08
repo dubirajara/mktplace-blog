@@ -11,16 +11,22 @@
 
         <!-- Schema.org markup for Google+ -->
         <meta itemprop="name" content="{{ META_TITLE }}">
+        <meta itemprop="image" content="{% static 'images/logo_small.png' %}"/>
         <meta itemprop="description" content="{{ META_DESCRIPTION }}">
 
 
         <!-- FACEBOOK -->
         <meta property="og:title" content="{{ META_TITLE }}" />
         <meta property="og:type" content="article" />
+        <meta property="og:image" content="{% static 'images/logo_small.png' %}"/>
+        <meta property=”fb:admins”content=”themarketingplace”/>
+        <meta property="og:url" content="http://themarketingplace.es" />
         <meta property="og:description" content="{{ META_DESCRIPTION }}" />
 
         <!-- TWITTER -->
+        <meta name="twitter:card" content="summary with large image">
         <meta name="twitter:title" content="{{ META_TITLE }}">
+        <meta name="twitter:image" content="{% static 'images/logo_small.png' %}"/>
         <meta name="twitter:description" content="{{ META_DESCRIPTION }}">
 
   <title>{% block title %}{{ META_DESCRIPTION }}{% endblock %}</title>
