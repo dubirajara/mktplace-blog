@@ -2,7 +2,7 @@
 
 {% load humanize %}
 
-{% block title %}Blog{% endblock %}
+{% block title %}{{ posts.title }}{% endblock %}
 
 {% block content %}
 
@@ -14,7 +14,7 @@
 
           <!-- Post Content -->
         <br><br>
-          <p>{{ posts.content|safe|linebreaks }}</p>
+          <p>{{ posts.content|safe|linebreaks|urlize }}</p>
 
           <hr>
 
