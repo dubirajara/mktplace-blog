@@ -7,7 +7,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <meta name="description" content="{{ META_DESCRIPTION }}">
   <meta name="keywords" content="Marketing, SEO, Desarrollo Web, Bio, Big Data, Genetica, Sequenciación, SEM, Consultoria, Healtcare" />
-  <meta name="author" content=""> 
+  <meta name="author" content="">
+
+        <!-- Schema.org markup for Google+ -->
+        <meta itemprop="name" content="{{ posts.title }}">
+        <meta itemprop="image" content="{{ posts.photo }}"/>
+        <meta itemprop="description" content="{{ posts.content|striptags|safe|truncatewords:"30" }}">
+
+
+        <!-- FACEBOOK -->
+        <meta property="og:title" content="{{ posts.title }}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="{{ posts.photo }}"/>
+        <meta property=”fb:admins”content=”themarketingplace”/>
+        <meta property="og:url" content="http://themarketingplace.es" />
+        <meta property="og:description" content="{{ posts.content|striptags|safe|truncatewords:"30" }}" />
+
+        <!-- TWITTER -->
+        <meta name="twitter:card" content="summary with large image">
+        <meta name="twitter:title" content="{{ posts.title }}">
+        <meta name="twitter:image" content="{{ posts.photo }}"/>
+        <meta name="twitter:description" content="{{ posts.content|striptags|safe|truncatewords:"30" }}">
   <title>{% block title %}{% endblock %}</title>
 
   <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
