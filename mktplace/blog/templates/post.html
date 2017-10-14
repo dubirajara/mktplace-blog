@@ -2,6 +2,26 @@
 
 {% load humanize %}
 
+        <!-- Schema.org markup for Google+ -->
+        <meta itemprop="name" content="{{ posts.title }}">
+        <meta itemprop="image" content="{{ posts.photo }}"/>
+        <meta itemprop="description" content="{{ post.content|striptags|safe|truncatewords:"30" }}">
+
+
+        <!-- FACEBOOK -->
+        <meta property="og:title" content="{{ posts.title }}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="{{ posts.photo }}"/>
+        <meta property=”fb:admins”content=”themarketingplace”/>
+        <meta property="og:url" content="http://themarketingplace.es" />
+        <meta property="og:description" content="{{ post.content|striptags|safe|truncatewords:"30" }}" />
+
+        <!-- TWITTER -->
+        <meta name="twitter:card" content="summary with large image">
+        <meta name="twitter:title" content="{{ posts.title }}">
+        <meta name="twitter:image" content="{{ posts.photo }}"/>
+        <meta name="twitter:description" content="{{ post.content|striptags|safe|truncatewords:"30" }}">
+
 {% block title %}{{ posts.title }}{% endblock %}
 
 {% block content %}
