@@ -14,7 +14,7 @@
         <meta property="og:type" content="article" />
         <meta property="og:image" content="{{ posts.photo }}" />
         <meta property="fb:admins"content="themarketingplace" />
-        <meta property="og:url" content="{{ posts.get_absolute_url }}" />
+        <meta property="og:url" content="http://themarketingplace.es{{ posts.get_absolute_url }}" />
         <meta property="og:description" content="{{ posts.content|striptags|safe|truncatewords:"30" }}" />
 
         <!-- TWITTER -->
@@ -22,6 +22,7 @@
         <meta name="twitter:title" content="{{ posts.title }}" />
         <meta name="twitter:image" content="{{ posts.photo }}" />
         <meta name="twitter:description" content="{{ posts.content|striptags|safe|truncatewords:"30" }}" />
+        <meta property="twitter:site" content="@TMarketingPlace" />
 
 {% endblock %}
 
