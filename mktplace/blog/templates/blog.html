@@ -2,6 +2,30 @@
 
 {% load humanize %}
 
+{% block seo_tags %}
+
+        <!-- Schema.org markup for Google+ -->
+        <meta itemprop="name" content="{{ META_TITLE }}" />
+        <meta itemprop="image" content="{% static 'images/logo_small.png' %}" />
+        <meta itemprop="description" content="{{ META_DESCRIPTION }}" />
+
+
+        <!-- FACEBOOK -->
+        <meta property="og:title" content="{{ META_TITLE }}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="{% static 'images/logo_small.png' %}"/>
+        <meta property="fb:admins"content="themarketingplace" />
+        <meta property="og:url" content="http://themarketingplace.es/blog/" />
+        <meta property="og:description" content="{{ META_DESCRIPTION }}" />
+
+        <!-- TWITTER -->
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="{{ META_TITLE }}" />
+        <meta name="twitter:image" content="http://oi68.tinypic.com/hssx0i.jpg" />
+        <meta name="twitter:description" content="{{ META_DESCRIPTION }}" />
+
+{% endblock %}
+
 {% block title %}The Marketing Place Blog{% endblock %}
 
 {% block content %}
