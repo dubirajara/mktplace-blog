@@ -13,4 +13,5 @@ class BlogTest(TestCase):
     def test_template(self):
         """'blog' must use template blog.html and base.html"""
         self.assertTemplateUsed(self.response, 'blog.html')
-        self.assertTemplateUsed(self.response, 'base.html')
+        self.assertTemplateUsed(self.response, 'baseblog.html')
+        self.assertTemplateUsed(self.response, 'footer.html')

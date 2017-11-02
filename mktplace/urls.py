@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^blog/', include('mktplace.blog.urls')),
     url(r'^summernote/', include('django_summernote.urls')),
     url(r'^success/$', ThanksContactView.as_view()),
-    url(r'^robots\.txt$', include('robots.urls')),
+    url(r'^robots\.txt', include('robots.urls')),
 
 ]
 
