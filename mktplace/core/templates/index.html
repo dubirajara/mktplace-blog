@@ -368,7 +368,7 @@
                                                 <form id="contact-form" class="contact" accept-charset='UTF-8' action="https://formcarry.com/s/Sks5fJ8JM" method='POST'>
                                                      {% csrf_token %}
 													<div class="form-group">
-														<input type="text" name="firstName" class="form-control name-field" required="required" placeholder="Nombre"></div>
+														<input type="text" name="name" class="form-control name-field" required="required" placeholder="Nombre"></div>
 														<div class="form-group">
 															<input type="email" name="email" class="form-control mail-field" required="required" placeholder="Correo">
 														</div>
@@ -378,7 +378,6 @@
 														<div class="form-group">
 															<button type="submit" class="btn btn-primary">Enviar</button>
 														</div>
-                                                    <div class="g-recaptcha" data-sitekey="6LeuvjIUAAAAAHDvCqpmKXsDWeBLZzBNSM42RWYZ"></div>
 													</form>
 												</div>
 											</div>
@@ -389,6 +388,5 @@
 {% cookielaw_banner %}
 
     <script src="{% static "cookielaw/js/cookielaw.js"%}" type="text/javascript"></script>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
 
 {% endblock %}
