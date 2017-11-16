@@ -40,6 +40,13 @@
         <br><br>
           <p>{{ posts.content|safe|linebreaks }}</p>
 
+                            {% if posts.tags %}<br>
+                           {% for tag in posts.tags.all %}
+                               <a class="textag post-tag" href="{% url 'tag' tag %}">
+                                   <i class="fa fa-tag">&nbsp{{ tag }}</i></a>
+                        {% endfor %}
+                        {% endif %}
+
           <hr>
     <div class="addthis_inline_share_toolbox"></div>
 <div id="disqus_thread"></div>

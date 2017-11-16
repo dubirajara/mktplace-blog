@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.views.generic import ListView, DetailView
 
 from .models import Post
@@ -20,3 +20,13 @@ class PostDetails(DetailView):
     def get_object(self):
         """Returns the BlogPost instance that the view displays"""
         return get_object_or_404(Post, slug=self.kwargs.get("slug"))
+
+
+def by_tags(request, tags):
+    queryset = Post.objects.filter(tags=tags)
+
+    context = {
+        'tags': queryset
+    }
+
+    return render(request, 'tags.html', context)
