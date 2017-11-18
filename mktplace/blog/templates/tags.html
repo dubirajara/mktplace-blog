@@ -26,39 +26,44 @@
                       <p>{{ tag.content|striptags|safe|truncatewords:"40" }}</p>
                     </div>
                     <a href="{{ tag.get_absolute_url }}" class="btn btn-primary" role="button">Ler Mas</a>
+
                 </div>
               </div>
                   {% if forloop.counter|divisibleby:3 and not forloop.last %}
                       </div><div class="row"></div>
 
       {% endif %}
+                    {% empty %}
+                        <h3 style="text-align: center">Categoria no existe!</h3>
     {% endfor %}
 
 <div class="row text-center"></div>
 <br>
 
 <div class="row text-center">
+
+{% if tags.has_other_pages %}
 <ul class="pager">
-  <li>
-    {% if page_obj.has_previous %}
-         <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% if tags.has_previous %}
+        <li>
+         <a href="?page={{ tags.previous_page_number }}">Previous</a></li>
          {% else %}
             <li class="disabled"><span>&laquo;</span></li>
     {% endif %}
-        {% for i in paginator.page_range %}
-                  {% if page_obj.number == i %}
+        {% for i in tags.paginator.page_range %}
+                  {% if tags.number == i %}
         <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
       {% else %}
         <li><a href="?page={{ i }}">{{ i }}</a></li>
       {% endif %}
             {% endfor %}
-  <li>
-    {% if page_obj.has_next %}
-       <a href="?page={{ page_obj.next_page_number }}">Next</a>
+    {% if tags.has_next %}
+       <li><a href="?page={{ tags.next_page_number }}">Next</a></li>
        {% else %}
                 <li class="disabled"><span>&raquo;</span></li>
       {% endif %}
 </ul>
+{% endif %}
 </div>
 
 

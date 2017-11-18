@@ -47,7 +47,6 @@ INSTALLED_APPS = [
 
     #Third-party apps
     'tagulous',
-    'cookielaw',
     'robots',
 
     #my apps

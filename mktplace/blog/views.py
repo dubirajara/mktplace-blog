@@ -1,5 +1,7 @@
 from django.shortcuts import get_object_or_404, render
 from django.views.generic import ListView, DetailView
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
 
 from .models import Post
 
@@ -25,8 +27,19 @@ class PostDetails(DetailView):
 def by_tags(request, tags):
     queryset = Post.objects.filter(tags=tags)
 
+    page = request.GET.get('page', 1)
+
+    paginator = Paginator(queryset, 9)
+
+    try:
+        tags = paginator.page(page)
+    except PageNotAnInteger:
+        tags = paginator.page(1)
+    except EmptyPage:
+        tags = paginator.page(paginator.num_pages)
+
     context = {
-        'tags': queryset
+        'tags': tags,
     }
 
     return render(request, 'tags.html', context)

@@ -2,14 +2,11 @@
 
 {% load static %}
 
-{% load staticfiles cookielaw_tags %}
-
 {% load humanize %}
 
-<link href="{% static "cookielaw/css/cookielaw.css"%}" rel="stylesheet" />
 
 {% block content %}
-
+<link rel="stylesheet" href="{% static 'css/cookies.css' %}">
 	<section id="home">
 		<div class="home-pattern"></div>
 		<div id="main-carousel" class="carousel slide" data-ride="carousel" data-interval="12000">
@@ -385,8 +382,12 @@
 									</div>
 								</div>
 							</section> <!--/#contact-->
-{% cookielaw_banner %}
+<div id="barraaceptacion" style="display: block;">
+        <div class="inner">
+            <p>Utilizamos cookies propias y de terceros para ofrecer nuestros servicios, mostrar publicidad y recoger información estadística. Al continuar con la navegación entendemos que lo acepta.</p>
+            <a href="javascript:void(0);" class="ok" onclick="PonerCookie();"><b>ACEPTAR</b></a>
+        </div>
+    </div>
 
-    <script src="{% static "cookielaw/js/cookielaw.js"%}" type="text/javascript"></script>
-
+    <script type="text/javascript" src="{% static 'js/cookies.js' %}"></script>
 {% endblock %}
