@@ -1,6 +1,5 @@
 
-  #barraaceptacion {
-    display:none;
+  #CookielawBanner {
     position:fixed;
     left:0px;
     right:0px;
@@ -15,7 +14,10 @@
     z-index:99999;
   }
 
-.inner {
+.container a.ok {padding:4px;color:#fc7700;text-decoration:none;}
+
+
+#CookielawBanner .container {
 	width:100%;
 	position:relative;
 	padding-left:5px;
@@ -24,4 +26,13 @@
 	top:30%;
 }
 
-.inner a.ok {padding:4px;color:#fc7700;text-decoration:none;}
+#CookielawBanner #CookielawCross {
+    background: url('../img/close.png') no-repeat 0 0;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15px;
+    height: 15px;
+}

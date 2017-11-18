@@ -1,34 +1,46 @@
- function getCookie(c_name) {
-            var c_value = document.cookie;
-            var c_start = c_value.indexOf(" " + c_name + "=");
-            if (c_start == -1) {
-                c_start = c_value.indexOf(c_name + "=");
-            }
-            if (c_start == -1) {
-                c_value = null;
-            } else {
-                c_start = c_value.indexOf("=", c_start) + 1;
-                var c_end = c_value.indexOf(";", c_start);
-                if (c_end == -1) {
-                    c_end = c_value.length;
-                }
-                c_value = unescape(c_value.substring(c_start, c_end));
-            }
-            return c_value;
-        }
+var Cookielaw = {
 
-        function setCookie(c_name, value, exdays) {
-            var exdate = new Date();
-            exdate.setDate(exdate.getDate() + exdays);
-            var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
-            document.cookie = c_name + "=" + c_value;
+    createCookie: function (name, value, days) {
+        var date = new Date(),
+            expires = '';
+        if (days) {
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toGMTString();
+        } else {
+            expires = "";
         }
+        document.cookie = name + "=" + value + expires + "; path=/";
+    },
 
-        if (getCookie('tiendaaviso') != "1") {
-            document.getElementById("barraaceptacion").style.display = "block";
+    getCookie: function(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1);
+            if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
         }
+        return "";
+    },
 
-        function PonerCookie() {
-            setCookie('tiendaaviso', '1', 365);
-            document.getElementById("barraaceptacion").style.display = "none";
+    createCookielawCookie: function () {
+        this.createCookie('cookielaw_accepted', '1', 10 * 365);
+
+        if (typeof (window.jQuery) === 'function') {
+            jQuery('#barraaceptacion').slideUp();
+        } else {
+            document.getElementById('barraaceptacion').style.display = 'none';
         }
+    }
+
+};
+
+/* Js mode */
+document.addEventListener("DOMContentLoaded", function(event) {
+    var el = document.querySelector("#barraaceptacion.BannerJsMode");
+    if (el) {
+        if (!Cookielaw.getCookie("cookielaw_accepted")) {
+            el.style.display = "block";
+        }
+    }
+});

@@ -45,13 +45,14 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'django.contrib.sites',
 
-    #Third-party apps
-    'tagulous',
-    'robots',
-
-    #my apps
+    # my apps
     'mktplace.core',
     'mktplace.blog',
+
+    #Third-party apps
+    'tagulous',
+    'cookielaw',
+    'robots',
 ]
 
 SITE_ID = 1
