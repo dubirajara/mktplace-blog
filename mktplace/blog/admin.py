@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from django_summernote.admin import SummernoteModelAdmin
+import tagulous.admin
 
 from .models import Post
 
@@ -14,3 +15,4 @@ class PostAdmin(SummernoteModelAdmin):
 admin.site.site_header = 'The Marketing Place Admin'
 admin.site.site_title = 'The Marketing Place Admin'
 admin.site.register(Post, PostAdmin)
+tagulous.admin.register(Post.tags.tag_model)
