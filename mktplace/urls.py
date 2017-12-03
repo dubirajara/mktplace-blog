@@ -13,20 +13,21 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.urls import include, path
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
+from django.views.generic import TemplateView
 
 from mktplace.core.views import HomeView, success
 
 urlpatterns = [
-    url(r'^$', HomeView.as_view(), name='home'),
-    url(r'^mktplaceadmin/', admin.site.urls),
-    url(r'^blog/', include('mktplace.blog.urls')),
-    url(r'^summernote/', include('django_summernote.urls')),
-    url(r'^success/$', success),
-    url(r'^robots\.txt', include('robots.urls')),
+    path('', HomeView.as_view(), name='home'),
+    path('mktplaceadmin/', admin.site.urls),
+    path('blog/', include('mktplace.blog.urls')),
+    path('summernote/', include('django_summernote.urls')),
+    path('success/', success),
+    path('robots.txt/', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
 
 ]
 

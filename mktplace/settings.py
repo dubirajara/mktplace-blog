@@ -34,7 +34,6 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
-    'mktplace.blog.apps.SuitConfig',
     'django_summernote',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -52,7 +51,6 @@ INSTALLED_APPS = [
     #Third-party apps
     'tagulous',
     'cookielaw',
-    'robots',
 ]
 
 SITE_ID = 1
@@ -150,14 +148,6 @@ SERIALIZATION_MODULES = {
     'python': 'tagulous.serializers.python',
     'yaml': 'tagulous.serializers.pyyaml',
 }
-
-# Django Suit configuration
-
-SUIT_CONFIG = {
-    'SHOW_REQUIRED_ASTERISK': True,
-    'MENU_EXCLUDE': ('auth.group', 'auth'),
-    }
-
 
 # Email Configuration
 

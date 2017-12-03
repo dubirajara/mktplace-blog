@@ -7,7 +7,7 @@ import tagulous.models
 
 
 class Post(models.Model):
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     photo = models.URLField('Image', null=True)
     title = models.CharField("Titulo", max_length=255)
     content = models.TextField("Contenido", blank=True)
