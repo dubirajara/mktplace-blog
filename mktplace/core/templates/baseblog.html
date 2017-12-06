@@ -4,8 +4,9 @@
 <html lang="en">
 <head> 
   <meta charset="utf-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <meta name="description" content="{{ META_DESCRIPTION }}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="{{ posts.title }}" />
+  <meta name="description" content="{{ posts.content|striptags|safe|truncatewords:"20" }}" />
   <meta name="keywords" content="Marketing, SEO, Desarrollo Web, Bio, Big Data, Genetica, Sequenciación, SEM, Consultoria, Healtcare" />
   <meta name="author" content="">
 
