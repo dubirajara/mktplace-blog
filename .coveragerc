@@ -1,0 +1,5 @@
+[run]
+omit =
+    mktplace/core/apps.py
+    mktplace/blog/apps.py
+    mktplace/wsgi.py
