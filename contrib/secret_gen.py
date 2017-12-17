@@ -38,6 +38,6 @@ SOCIAL_AUTH_TWITTER_SECRET=
 """.strip().format(get_random_string(50, chars))
 
 # Writing our configuration file to '.env'
-with open('myideas/.env', 'w') as configfile:
+with open('mktplace/.env', 'w') as configfile:
     configfile.write(CONFIG_STRING)
     print('Created the .env file successfully.')
