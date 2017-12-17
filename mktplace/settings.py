@@ -149,16 +149,5 @@ SERIALIZATION_MODULES = {
     'yaml': 'tagulous.serializers.pyyaml',
 }
 
-# Email Configuration
-
-# EMAIL_BACKEND = config('EMAIL_BACKEND')
-# EMAIL_HOST = config('EMAIL_HOST')
-# EMAIL_PORT = config('EMAIL_PORT', cast=int)
-# EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
-# SENDGRID_API_KEY = config('SENDGRID_API_KEY')
-# EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-# EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-SENDGRID_USERNAME = config('SENDGRID_USERNAME')
-SENDGRID_PASSWORD = config('SENDGRID_PASSWORD')
 META_DESCRIPTION = config('META_DESCRIPTION')
 META_TITLE = config('META_TITLE')
