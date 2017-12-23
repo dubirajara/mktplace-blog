@@ -18,6 +18,9 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
+from graphene_django.views import GraphQLView
+
+from .blog.schema import schema
 
 from mktplace.core.views import HomeView, success
 
@@ -28,6 +31,7 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('success/', success),
     path('robots.txt/', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
+    path('graphql', GraphQLView.as_view(graphiql=True, schema=schema)),
 
 ]
 
