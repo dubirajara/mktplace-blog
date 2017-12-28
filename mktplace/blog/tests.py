@@ -29,7 +29,7 @@ class DetailsTest(TestCase):
         """Check models data create"""
         self.assertTrue(Post.objects.exists())
         
-   def test_str(self):
+    def test_str(self):
         """Check __str__ return title field"""
         self.assertEqual('test app', str(self.blog))  
 
