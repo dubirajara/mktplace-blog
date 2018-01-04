@@ -31,7 +31,13 @@ class DetailsTest(TestCase):
         
     def test_str(self):
         """Check __str__ return title field"""
-        self.assertEqual('test app', str(self.blog))  
+        self.assertEqual('test app', str(self.blog))
+
+    def test_get_tags(self):
+        """GET 'Ideas tags' must return status code 200"""
+        response = self.client.get(r('tag', self.blog.tags))
+        self.assertEqual(200, response.status_code)
+
 
 class BlogTest(TestCase):
     def setUp(self):
