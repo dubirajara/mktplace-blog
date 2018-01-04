@@ -20,15 +20,16 @@ class DetailsTest(TestCase):
             user=user, title='test app', tags='django'
         )
         self.response = self.client.get(r(self.blog.get_absolute_url()))
-        
+
     def test_get(self):
         """GET 'Ideas Details' must return status code 200"""
         self.assertEqual(200, self.response.status_code)
-        
+        self.assertTrue('posts' in self.response.context)
+
     def test_create(self):
         """Check models data create"""
         self.assertTrue(Post.objects.exists())
-        
+
     def test_str(self):
         """Check __str__ return title field"""
         self.assertEqual('test app', str(self.blog))
@@ -37,6 +38,7 @@ class DetailsTest(TestCase):
         """GET 'Ideas tags' must return status code 200"""
         response = self.client.get(r('tag', self.blog.tags))
         self.assertEqual(200, response.status_code)
+        self.assertTrue('tags' in response.context)
 
 
 class BlogTest(TestCase):
@@ -46,6 +48,7 @@ class BlogTest(TestCase):
     def test_get(self):
         """GET 'blog' must return status code 200"""
         self.assertEqual(200, self.response.status_code)
+        self.assertTrue('posts' in self.response.context)
 
     def test_template(self):
         """'blog' must use template blog.html and base.html"""
