@@ -81,6 +81,37 @@ class SchemaTestCase(TestCase):
         prettified_data = json.dumps(result.data, sort_keys=False)
         self.assertEqual(json.loads(prettified_data), expected)
 
+    def test_resolve_post_id(self):
+        query = ('''
+        query{
+          post(id:%s){
+              user {
+                    id
+                    username
+                    email
+                    } 
+                id
+                title
+            }
+        }
+        ''' % self.blog.id)
+        result = schema.execute(query)
+        assert not result.errors
+        expected = {
+            "post":
+                {
+                 "user": {
+                     "id": str(self.blog.id),
+                     "username": self.username,
+                     "email": self.email,
+                 },
+                 "id": str(self.blog.id),
+                 "title": self.blog.title
+                }
+            }
+
+        prettified_data = json.dumps(result.data, sort_keys=False)
+        self.assertEqual(json.loads(prettified_data), expected)
 
     def test_resolve_post_title(self):
         query = '''
@@ -114,6 +145,29 @@ class SchemaTestCase(TestCase):
         prettified_data = json.dumps(result.data, sort_keys=False)
         self.assertEqual(json.loads(prettified_data), expected)
 
+    def test_resolve_user_id(self):
+        query = ('''
+        query{
+          user(id:%s){
+                    id
+                    username
+                    email
+                    } 
+            }
+        ''' % self.blog.id)
+
+        result = schema.execute(query)
+        assert not result.errors
+        expected = {
+            "user": {
+               "id": str(self.blog.id),
+               "username": self.username,
+               "email": self.email,
+
+            }}
+
+        prettified_data = json.dumps(result.data, sort_keys=False)
+        self.assertEqual(json.loads(prettified_data), expected)
 
     def test_resolve_user_username(self):
         query = '''
