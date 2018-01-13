@@ -42,11 +42,11 @@ class SchemaTestCase(TestCase):
             "allPosts": [
                 {
                     "user": {
-                        "id": "14",
+                        "id": str(self.blog.id),
                         "username": self.username,
                         "email": self.email,
                     },
-                    "id": "14",
+                    "id": str(self.blog.id),
                     "title": self.blog.title
                 }
             ]
@@ -70,7 +70,7 @@ class SchemaTestCase(TestCase):
         expected = {
             "allUsers": [
                 {
-                    "id": "14",
+                    "id": str(self.blog.id),
                     "username": self.username,
                     "email": self.email,
 
@@ -84,7 +84,7 @@ class SchemaTestCase(TestCase):
     def test_resolve_post_id(self):
         query = '''
         query{
-          post(id:14){
+          post(id:17){
               user {
                     id
                     username
@@ -101,11 +101,11 @@ class SchemaTestCase(TestCase):
             "post":
                 {
                  "user": {
-                     "id": "14",
+                     "id": str(self.blog.id),
                      "username": self.username,
                      "email": self.email,
                  },
-                 "id": "14",
+                 "id": str(self.blog.id),
                  "title": self.blog.title
                 }
             }
@@ -133,11 +133,11 @@ class SchemaTestCase(TestCase):
             "post":
                 {
                  "user": {
-                     "id": "14",
+                     "id": str(self.blog.id),
                      "username": self.username,
                      "email": self.email,
                  },
-                 "id": "14",
+                 "id": str(self.blog.id),
                  "title": self.blog.title
                 }
             }
@@ -148,7 +148,7 @@ class SchemaTestCase(TestCase):
     def test_resolve_user_id(self):
         query = '''
         query{
-          user(id:14){
+          user(id:19){
                     id
                     username
                     email
@@ -159,7 +159,7 @@ class SchemaTestCase(TestCase):
         assert not result.errors
         expected = {
             "user": {
-               "id": "14",
+               "id": str(self.blog.id),
                "username": self.username,
                "email": self.email,
 
@@ -182,7 +182,7 @@ class SchemaTestCase(TestCase):
         assert not result.errors
         expected = {
             "user": {
-               "id": "14",
+               "id": str(self.blog.id),
                "username": self.username,
                "email": self.email,
 
