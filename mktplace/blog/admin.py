@@ -1,7 +1,6 @@
-from django.contrib import admin
-
-from django_summernote.admin import SummernoteModelAdmin
 import tagulous.admin
+from django.contrib import admin
+from django_summernote.admin import SummernoteModelAdmin
 
 from .models import Post
 
@@ -11,6 +10,7 @@ class PostAdmin(SummernoteModelAdmin):
     list_editable = ('active',)
     search_fields = ('title',)
     prepopulated_fields = {'slug': ('title',)}
+
 
 admin.site.site_header = 'The Marketing Place Admin'
 admin.site.site_title = 'The Marketing Place Admin'

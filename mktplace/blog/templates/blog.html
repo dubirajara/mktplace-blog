@@ -6,87 +6,88 @@
 
 {% block seo_tags %}
 
-        <!-- Schema.org markup for Google+ -->
-        <meta itemprop="name" content="The Marketing Place Blog" />
-        <meta itemprop="image" content=" http://themarketingplace.es{% static 'images/logo.png' %}" />
-        <meta itemprop="description" content="The Marketing Place Blog" />
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="The Marketing Place Blog"/>
+    <meta itemprop="image" content=" http://themarketingplace.es{% static 'images/logo.png' %}"/>
+    <meta itemprop="description" content="The Marketing Place Blog"/>
 
 
-        <!-- FACEBOOK -->
-        <meta property="og:title" content="The Marketing Place Blog" />
-        <meta property="og:type" content="article" />
-        <meta property="og:image" content=" http://themarketingplace.es{% static 'images/logo.png' %}" />
-        <meta property="fb:admins"content="themarketingplace" />
-        <meta property="og:url" content="http://themarketingplace.es/blog/" />
-        <meta property="og:description" content="The Marketing Place Blog" />
+    <!-- FACEBOOK -->
+    <meta property="og:title" content="The Marketing Place Blog"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:image" content=" http://themarketingplace.es{% static 'images/logo.png' %}"/>
+    <meta property="fb:admins" content="themarketingplace"/>
+    <meta property="og:url" content="http://themarketingplace.es/blog/"/>
+    <meta property="og:description" content="The Marketing Place Blog"/>
 
-        <!-- TWITTER -->
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="The Marketing Place Blog" />
-        <meta name="twitter:image" content=" http://themarketingplace.es{% static 'images/logo.png' %}" />
-        <meta name="twitter:description" content="The Marketing Place Blog" />
-        <meta property="twitter:site" content="@TMarketingPlace" />
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="The Marketing Place Blog"/>
+    <meta name="twitter:image" content=" http://themarketingplace.es{% static 'images/logo.png' %}"/>
+    <meta name="twitter:description" content="The Marketing Place Blog"/>
+    <meta property="twitter:site" content="@TMarketingPlace"/>
 
 {% endblock %}
 
 {% block title %}The Marketing Place Blog{% endblock %}
 
 {% block content %}
-				<br>
-				<br>
-				<br>
-              <div class="row text-center clearfix" style="padding-top: 30px;">
-                <div class="col-sm-8 col-sm-offset-2">
-                  <h2 class="title-one">Blog</h2><br><br>
-                </div>
-                </div>
-				<div class="row striped">
-                {% for post in posts %}
-                <div class="col-sm-4">
-                  <div class="single-blog">
+    <br>
+    <br>
+    <br>
+    <div class="row text-center clearfix" style="padding-top: 30px;">
+        <div class="col-sm-8 col-sm-offset-2">
+            <h2 class="title-one">Blog</h2><br><br>
+        </div>
+    </div>
+    <div class="row striped">
+        {% for post in posts %}
+            <div class="col-sm-4">
+                <div class="single-blog">
                     <img src="{{ post.photo }}" class="img-thumbnail" alt="image">
                     <h2>{{ post.title }}</h2>
                     <ul class="post-meta">
-                      <li><i class="fa fa-clock-o"></i> {{ post.created_at|naturaltime }}</li>
+                        <li><i class="fa fa-clock-o"></i> {{ post.created_at|naturaltime }}</li>
                     </ul>
                     <div class="blog-content">
-                      <p>{{ post.content|striptags|safe|truncatewords:"40" }}</p>
+                        <p>{{ post.content|striptags|safe|truncatewords:"40" }}</p>
                     </div>
                     <a href="{{ post.get_absolute_url }}" class="btn btn-primary" role="button">Ler Mas</a>
                 </div>
-              </div>
-                  {% if forloop.counter|divisibleby:3 and not forloop.last %}
-                      </div><div class="row"></div>
+            </div>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                </div>
+                <div class="row"></div>
 
-      {% endif %}
-    {% endfor %}
+            {% endif %}
+        {% endfor %}
 
-<div class="row text-center"></div>
-<br>
+    <div class="row text-center"></div>
+    <br>
 
-<div class="row text-center">
-<ul class="pager">
-  <li>
-    {% if page_obj.has_previous %}
-         <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
-         {% else %}
-            <li class="disabled"><span>&laquo;</span></li>
-    {% endif %}
-        {% for i in paginator.page_range %}
-                  {% if page_obj.number == i %}
-        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-      {% else %}
-        <li><a href="?page={{ i }}">{{ i }}</a></li>
-      {% endif %}
+    <div class="row text-center">
+        <ul class="pager">
+            <li>
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                {% else %}
+                    <li class="disabled"><span>&laquo;</span></li>
+                {% endif %}
+            {% for i in paginator.page_range %}
+                {% if page_obj.number == i %}
+                    <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                {% else %}
+                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                {% endif %}
             {% endfor %}
-  <li>
-    {% if page_obj.has_next %}
-       <a href="?page={{ page_obj.next_page_number }}">Next</a>
-       {% else %}
-                <li class="disabled"><span>&raquo;</span></li> 
-      {% endif %}
-</ul>
-</div>
+            <li>
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Next</a>
+                {% else %}
+                    <li class="disabled"><span>&raquo;</span></li>
+                {% endif %}
+        </ul>
+    </div>
 
 
 {% endblock %}

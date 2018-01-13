@@ -18,7 +18,6 @@ from django.urls import path
 from mktplace.blog import views
 from .views import PostList, PostDetails
 
-
 urlpatterns = [
     path('', PostList.as_view(), name='post_list'),
     path('<slug:slug>/', PostDetails.as_view(), name='post_details'),
