@@ -41,11 +41,11 @@ class SchemaTestCase(TestCase):
             "allPosts": [
                 {
                     "user": {
-                        "id": "1",
+                        "id": "14",
                         "username": self.username,
                         "email": self.email,
                     },
-                    "id": "1",
+                    "id": "14",
                     "title": self.blog.title
                 }
             ]
