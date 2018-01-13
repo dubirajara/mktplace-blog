@@ -2,123 +2,140 @@
 
 <!DOCTYPE html>
 <html lang="es">
-<head> 
-  <meta charset="utf-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <meta name="description" content="{{ META_DESCRIPTION }}">
-  <meta name="keywords" content="Marketing, SEO, Desarrollo Web, Bio, Big Data, Genetica, Sequenciación, SEM, Consultoria, Healtcare" />
-  <meta name="author" content="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ META_DESCRIPTION }}">
+    <meta name="keywords"
+          content="Marketing, SEO, Desarrollo Web, Bio, Big Data, Genetica, Sequenciación, SEM, Consultoria, Healtcare"/>
+    <meta name="author" content="">
 
-        <!-- Schema.org markup for Google+ -->
-        <meta itemprop="name" content="{{ META_TITLE }}" />
-        <meta itemprop="image" content=" http://themarketingplace.es{% static 'images/logo.png' %}" />
-        <meta itemprop="description" content="{{ META_DESCRIPTION }}" />
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="{{ META_TITLE }}"/>
+    <meta itemprop="image" content=" http://themarketingplace.es{% static 'images/logo.png' %}"/>
+    <meta itemprop="description" content="{{ META_DESCRIPTION }}"/>
 
 
-        <!-- FACEBOOK -->
-        <meta property="og:title" content="{{ META_TITLE }}" />
-        <meta property="og:type" content="article" />
-        <meta property="og:image" content=" http://themarketingplace.es{% static 'images/logo.png' %}" />
-        <meta property="fb:admins"content="themarketingplace" />
-        <meta property="og:url" content="http://themarketingplace.es" />
-        <meta property="og:description" content="{{ META_DESCRIPTION }}" />
+    <!-- FACEBOOK -->
+    <meta property="og:title" content="{{ META_TITLE }}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:image" content=" http://themarketingplace.es{% static 'images/logo.png' %}"/>
+    <meta property="fb:admins" content="themarketingplace"/>
+    <meta property="og:url" content="http://themarketingplace.es"/>
+    <meta property="og:description" content="{{ META_DESCRIPTION }}"/>
 
-        <!-- TWITTER -->
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="{{ META_TITLE }}" />
-        <meta name="twitter:image" content=" http://themarketingplace.es{% static 'images/logo.png' %}" />
-        <meta name="twitter:description" content="{{ META_DESCRIPTION }}" />
-        <meta property="twitter:site" content="@TMarketingPlace" />
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="{{ META_TITLE }}"/>
+    <meta name="twitter:image" content=" http://themarketingplace.es{% static 'images/logo.png' %}"/>
+    <meta name="twitter:description" content="{{ META_DESCRIPTION }}"/>
+    <meta property="twitter:site" content="@TMarketingPlace"/>
 
-  <title>{% block title %}{{ META_DESCRIPTION }}{% endblock %}</title>
+    <title>{% block title %}{{ META_DESCRIPTION }}{% endblock %}</title>
 
-  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-  <link rel="stylesheet" href="{% static 'css/prettyPhoto.css' %}">
-  <link rel="stylesheet" href="{% static 'css/animate.css' %}">
-  <link rel="stylesheet" href="{% static 'css/main.css' %}">
-  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/prettyPhoto.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
 
-  <!--[if lt IE 9]> <script src="js/html5shiv.js"></script> 
+    <!--[if lt IE 9]> <script src="js/html5shiv.js"></script>
   <script src="js/respond.min.js"></script> <![endif]-->
 
-  <link rel="shortcut icon" href="{% static 'images/ico/favicon.png' %}">
-  <link rel="apple-touch-icon-precomposed" sizes="128x128" href="{% static 'images/ico/apple-touch-icon-128-precomposed.png' %}">
-  <link rel="apple-touch-icon-precomposed" sizes="64x64" href="{% static 'images/ico/apple-touch-icon-64-precomposed.png' %}">
-  <link rel="apple-touch-icon-precomposed" sizes="48x48" href="{% static 'images/ico/apple-touch-icon-48-precomposed.png' %}">
-  <link rel="apple-touch-icon-precomposed" sizes="32x32" href="{% static 'images/ico/apple-touch-icon-32-precomposed.png' %}">
+    <link rel="shortcut icon" href="{% static 'images/ico/favicon.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="128x128"
+          href="{% static 'images/ico/apple-touch-icon-128-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="64x64"
+          href="{% static 'images/ico/apple-touch-icon-64-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="48x48"
+          href="{% static 'images/ico/apple-touch-icon-48-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="32x32"
+          href="{% static 'images/ico/apple-touch-icon-32-precomposed.png' %}">
 
-  <style type="text/css">
-    .pager>.active>span {
-          background-color: #fb9750;
-          color: #fff;
-    }
-  </style>
+    <style type="text/css">
+        .pager > .active > span {
+            background-color: #fb9750;
+            color: #fff;
+        }
+    </style>
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-THM2D9');</script>
-<!-- End Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+            'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+        });
+        var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src =
+            'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-THM2D9');</script>
+    <!-- End Google Tag Manager -->
 
 </head><!--/head-->
 <body>
 
-  <div class="preloader">
+<div class="preloader">
     <div class="preloder-wrap">
-      <div class="preloder-inner"> 
-        <div class="ball"></div> 
-        <div class="ball"></div> 
-        <div class="ball"></div> 
-        <div class="ball"></div> 
-        <div class="ball"></div> 
-        <div class="ball"></div> 
-        <div class="ball"></div>
-      </div>
+        <div class="preloder-inner">
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="ball"></div>
+        </div>
     </div>
-  </div><!--/.preloader-->
-  <header id="navigation"> 
-    <div class="navbar navbar-inverse navbar-fixed-top" role="banner"> 
-      <div class="container"> 
-        <div class="navbar-header"> 
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> 
-            <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> 
-          </button>
-            <img src="{% static 'images/logo.png' %}" height="80" width="115" alt="logo"/>
-        </div> 
-      <div class="collapse navbar-collapse"> 
-        {% include 'nav.html' only %}
-        </div> 
-      </div> 
-    </div><!--/navbar--> 
-  </header> <!--/#navigation-->
-  <main>
+</div><!--/.preloader-->
+<header id="navigation">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span
+                        class="icon-bar"></span> <span class="icon-bar"></span>
+                </button>
+                <img src="{% static 'images/logo.png' %}" height="80" width="115" alt="logo"/>
+            </div>
+            <div class="collapse navbar-collapse">
+                {% include 'nav.html' only %}
+            </div>
+        </div>
+    </div><!--/navbar-->
+</header> <!--/#navigation-->
+<main>
     {% block content %}
     {% endblock %}<br>
-  </main>
+</main>
 
 
-  <div id="footer"> 
-      <div class="text-center"> 
-        <p>Copyright &copy; 2017 - <a href="http://themarketingplace.es/">The Marketing Place</a> | All Rights Reserved</p>
-      </div> 
-    </div> 
-<!--/#footer--> 
+<div id="footer">
+    <div class="text-center">
+        <p>Copyright &copy; 2017 - <a href="http://themarketingplace.es/">The Marketing Place</a> | All Rights Reserved
+        </p>
+    </div>
+</div>
+<!--/#footer-->
 
 
-  <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/smoothscroll.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.prettyPhoto.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/jquery.isotope.min.js' %}"></script>
-  <script type="text/javascript" src="{% static 'js/jquery.parallax.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.parallax.js' %}"></script>
 
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THM2D9"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THM2D9"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 
