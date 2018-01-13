@@ -81,37 +81,6 @@ class SchemaTestCase(TestCase):
         prettified_data = json.dumps(result.data, sort_keys=False)
         self.assertEqual(json.loads(prettified_data), expected)
 
-    def test_resolve_post_id(self):
-        query = '''
-        query{
-          post(id:17){
-              user {
-                    id
-                    username
-                    email
-                    } 
-                id
-                title
-            }
-        }
-        '''
-        result = schema.execute(query)
-        assert not result.errors
-        expected = {
-            "post":
-                {
-                 "user": {
-                     "id": str(self.blog.id),
-                     "username": self.username,
-                     "email": self.email,
-                 },
-                 "id": str(self.blog.id),
-                 "title": self.blog.title
-                }
-            }
-
-        prettified_data = json.dumps(result.data, sort_keys=False)
-        self.assertEqual(json.loads(prettified_data), expected)
 
     def test_resolve_post_title(self):
         query = '''
@@ -145,28 +114,6 @@ class SchemaTestCase(TestCase):
         prettified_data = json.dumps(result.data, sort_keys=False)
         self.assertEqual(json.loads(prettified_data), expected)
 
-    def test_resolve_user_id(self):
-        query = '''
-        query{
-          user(id:19){
-                    id
-                    username
-                    email
-                    } 
-            }
-        '''
-        result = schema.execute(query)
-        assert not result.errors
-        expected = {
-            "user": {
-               "id": str(self.blog.id),
-               "username": self.username,
-               "email": self.email,
-
-            }}
-
-        prettified_data = json.dumps(result.data, sort_keys=False)
-        self.assertEqual(json.loads(prettified_data), expected)
 
     def test_resolve_user_username(self):
         query = '''
