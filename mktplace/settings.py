@@ -18,7 +18,6 @@ from dj_database_url import parse as dburl
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -29,7 +28,6 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default=[], cast=Csv())
-
 
 # Application definition
 
@@ -48,7 +46,7 @@ INSTALLED_APPS = [
     'mktplace.core',
     'mktplace.blog',
 
-    #Third-party apps
+    # Third-party apps
     'tagulous',
     'cookielaw',
     'graphene_django',
@@ -86,16 +84,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mktplace.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
 DATABASES = {
-    'default': config('DATABASE_URL',  default=default_dburl, cast=dburl),
+    'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -115,7 +111,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
@@ -129,13 +124,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticsfiles')
-
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 MEDIA_URL = '/media/'
@@ -152,7 +145,6 @@ SERIALIZATION_MODULES = {
 
 META_DESCRIPTION = config('META_DESCRIPTION')
 META_TITLE = config('META_TITLE')
-
 
 GRAPHENE = {
     'SCHEMA': 'blog.schema.schema'  # Where your Graphene schema lives
