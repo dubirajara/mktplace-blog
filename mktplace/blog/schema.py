@@ -37,7 +37,6 @@ class Query(graphene.ObjectType):
     def resolve_post(self, info, **kwargs):
         id = kwargs.get('id')
         title = kwargs.get('title')
-        user = kwargs.get('user')
 
         if id is not None:
             return Post.objects.get(pk=id)
@@ -45,10 +44,6 @@ class Query(graphene.ObjectType):
         if title is not None:
             return Post.objects.get(title=title)
 
-        if user is not None:
-            return Post.objects.get(user=user)
-
-        return None
 
     def resolve_user(self, info, **kwargs):
         id = kwargs.get('id')
