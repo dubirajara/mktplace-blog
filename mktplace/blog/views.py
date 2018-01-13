@@ -18,7 +18,7 @@ class PostDetails(DetailView):
     context_object_name = 'posts'
     template_name = 'post.html'
 
-    def get_object(self):
+    def get_object(self, **kwargs):
         """Returns the BlogPost instance that the view displays"""
         return get_object_or_404(Post, slug=self.kwargs.get("slug"))
 
