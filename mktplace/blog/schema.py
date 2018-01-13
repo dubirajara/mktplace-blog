@@ -1,6 +1,5 @@
-from django.contrib.auth.models import User
-
 import graphene
+from django.contrib.auth.models import User
 from graphene_django.types import DjangoObjectType
 
 from .models import Post
@@ -28,7 +27,6 @@ class Query(graphene.ObjectType):
     post = graphene.Field(PostType,
                           id=graphene.Int(),
                           title=graphene.String())
-
 
     def resolve_all_users(self, info, **kwargs):
         return User.objects.all()

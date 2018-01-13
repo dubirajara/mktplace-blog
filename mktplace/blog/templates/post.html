@@ -3,26 +3,26 @@
 {% load humanize %}
 
 {% block seo_tags %}
-        <!-- Schema.org markup for Google+ -->
-        <meta itemprop="name" content="{{ posts.title }}" />
-        <meta itemprop="image" content="{{ posts.photo }}" />
-        <meta itemprop="description" content="{{ posts.content|striptags|safe|truncatewords:"30" }}" />
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="{{ posts.title }}"/>
+    <meta itemprop="image" content="{{ posts.photo }}"/>
+    <meta itemprop="description" content="{{ posts.content|striptags|safe|truncatewords:"30" }}"/>
 
 
-        <!-- FACEBOOK -->
-        <meta property="og:title" content="{{ posts.title }}" />
-        <meta property="og:type" content="article" />
-        <meta property="og:image" content="{{ posts.photo }}" />
-        <meta property="fb:admins"content="themarketingplace" />
-        <meta property="og:url" content="http://themarketingplace.es{{ posts.get_absolute_url }}" />
-        <meta property="og:description" content="{{ posts.content|striptags|safe|truncatewords:"30" }}" />
+    <!-- FACEBOOK -->
+    <meta property="og:title" content="{{ posts.title }}"/>
+    <meta property="og:type" content="article"/>
+    <meta property="og:image" content="{{ posts.photo }}"/>
+    <meta property="fb:admins" content="themarketingplace"/>
+    <meta property="og:url" content="http://themarketingplace.es{{ posts.get_absolute_url }}"/>
+    <meta property="og:description" content="{{ posts.content|striptags|safe|truncatewords:"30" }}"/>
 
-        <!-- TWITTER -->
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="{{ posts.title }}" />
-        <meta name="twitter:image" content="{{ posts.photo }}" />
-        <meta name="twitter:description" content="{{ posts.content|striptags|safe|truncatewords:"30" }}" />
-        <meta property="twitter:site" content="@TMarketingPlace" />
+    <!-- TWITTER -->
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:title" content="{{ posts.title }}"/>
+    <meta name="twitter:image" content="{{ posts.photo }}"/>
+    <meta name="twitter:description" content="{{ posts.content|striptags|safe|truncatewords:"30" }}"/>
+    <meta property="twitter:site" content="@TMarketingPlace"/>
 
 {% endblock %}
 
@@ -31,43 +31,44 @@
 {% block content %}
 
     <div class="row text-center" style="padding-top: 120px;">
-<div class="col-sm-8 col-sm-offset-2">
-<img class="img-responsive center-block" src="{{ posts.photo }}" alt="Image">
-<h1>{{ posts.title }}</h1>
-    <span><i class="fa fa-clock-o"></i> {{ posts.created_at|naturaltime }}</span>
+        <div class="col-sm-8 col-sm-offset-2">
+            <img class="img-responsive center-block" src="{{ posts.photo }}" alt="Image">
+            <h1>{{ posts.title }}</h1>
+            <span><i class="fa fa-clock-o"></i> {{ posts.created_at|naturaltime }}</span>
 
-          <!-- Post Content -->
-        <br><br>
-          <p>{{ posts.content|safe|linebreaks }}</p>
+            <!-- Post Content -->
+            <br><br>
+            <p>{{ posts.content|safe|linebreaks }}</p>
 
-                            {% if posts.tags %}<br>
-                           {% for tag in posts.tags.all %}
-                               <a class="textag post-tag" href="{% url 'tag' tag %}">
-                                   <i class="fa fa-tag">&nbsp{{ tag }}</i></a>
-                        {% endfor %}
-                        {% endif %}
+            {% if posts.tags %}<br>
+                {% for tag in posts.tags.all %}
+                    <a class="textag post-tag" href="{% url 'tag' tag %}">
+                        <i class="fa fa-tag">&nbsp{{ tag }}</i></a>
+                {% endfor %}
+            {% endif %}
 
-          <hr>
-    <div class="addthis_inline_share_toolbox"></div>
-<div id="disqus_thread"></div>
-</div>
+            <hr>
+            <div class="addthis_inline_share_toolbox"></div>
+            <div id="disqus_thread"></div>
+        </div>
     </div>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59df5f9b882fb1d2"></script>
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59df5f9b882fb1d2"></script>
     <script id="dsq-count-scr" src="//themarketingplace.disqus.com/count.js" async></script>
 
-<script>
-var disqus_config = function () {
-this.page.url = "{{ request.build_absolute_uri }}";  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = "{{ posts.slug }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-};
+    <script>
+        var disqus_config = function () {
+            this.page.url = "{{ request.build_absolute_uri }}";  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "{{ posts.slug }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
 
-(function() { // DON'T EDIT BELOW THIS LINE
-var d = document, s = d.createElement('script');
-s.src = 'https://themarketingplace.disqus.com/embed.js';
-s.setAttribute('data-timestamp', +new Date());
-(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        (function () { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://themarketingplace.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+        Disqus.</a></noscript>
 
 {% endblock %}

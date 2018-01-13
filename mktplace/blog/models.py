@@ -1,9 +1,8 @@
+import tagulous.models
+from django.contrib.auth.models import User
 from django.db import models
 from django.shortcuts import resolve_url as r
-from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
-
-import tagulous.models
 
 
 class Post(models.Model):

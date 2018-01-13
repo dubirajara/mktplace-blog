@@ -5,66 +5,67 @@
 
 {% block content %}
 
-				<br>
-				<br>
-				<br>
-              <div class="row text-center clearfix" style="padding-top: 30px;">
-                <div class="col-sm-8 col-sm-offset-2">
-                  <h2 class="title-one">Blog</h2><br><br>
-                </div>
-                </div>
-				<div class="row striped">
-                {% for tag in tags %}
-                <div class="col-sm-4">
-                  <div class="single-blog">
+    <br>
+    <br>
+    <br>
+    <div class="row text-center clearfix" style="padding-top: 30px;">
+        <div class="col-sm-8 col-sm-offset-2">
+            <h2 class="title-one">Blog</h2><br><br>
+        </div>
+    </div>
+    <div class="row striped">
+        {% for tag in tags %}
+            <div class="col-sm-4">
+                <div class="single-blog">
                     <img src="{{ tag.photo }}" class="img-thumbnail" alt="image">
                     <h2>{{ tag.title }}</h2>
                     <ul class="post-meta">
-                      <li><i class="fa fa-clock-o"></i> {{ tag.created_at|naturaltime }}</li>
+                        <li><i class="fa fa-clock-o"></i> {{ tag.created_at|naturaltime }}</li>
                     </ul>
                     <div class="blog-content">
-                      <p>{{ tag.content|striptags|safe|truncatewords:"40" }}</p>
+                        <p>{{ tag.content|striptags|safe|truncatewords:"40" }}</p>
                     </div>
                     <a href="{{ tag.get_absolute_url }}" class="btn btn-primary" role="button">Ler Mas</a>
 
                 </div>
-              </div>
-                  {% if forloop.counter|divisibleby:3 and not forloop.last %}
-                      </div><div class="row"></div>
+            </div>
+            {% if forloop.counter|divisibleby:3 and not forloop.last %}
+                </div>
+                <div class="row"></div>
 
-      {% endif %}
-                    {% empty %}
-                        <h3 style="text-align: center">Categoria no existe!</h3>
-    {% endfor %}
+            {% endif %}
+        {% empty %}
+            <h3 style="text-align: center">Categoria no existe!</h3>
+        {% endfor %}
 
-<div class="row text-center"></div>
-<br>
+    <div class="row text-center"></div>
+    <br>
 
-<div class="row text-center">
+    <div class="row text-center">
 
-{% if tags.has_other_pages %}
-<ul class="pager">
-    {% if tags.has_previous %}
-        <li>
-         <a href="?page={{ tags.previous_page_number }}">Previous</a></li>
-         {% else %}
-            <li class="disabled"><span>&laquo;</span></li>
-    {% endif %}
-        {% for i in tags.paginator.page_range %}
-                  {% if tags.number == i %}
-        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-      {% else %}
-        <li><a href="?page={{ i }}">{{ i }}</a></li>
-      {% endif %}
-            {% endfor %}
-    {% if tags.has_next %}
-       <li><a href="?page={{ tags.next_page_number }}">Next</a></li>
-       {% else %}
-                <li class="disabled"><span>&raquo;</span></li>
-      {% endif %}
-</ul>
-{% endif %}
-</div>
+        {% if tags.has_other_pages %}
+            <ul class="pager">
+                {% if tags.has_previous %}
+                    <li>
+                        <a href="?page={{ tags.previous_page_number }}">Previous</a></li>
+                {% else %}
+                    <li class="disabled"><span>&laquo;</span></li>
+                {% endif %}
+                {% for i in tags.paginator.page_range %}
+                    {% if tags.number == i %}
+                        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                    {% else %}
+                        <li><a href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if tags.has_next %}
+                    <li><a href="?page={{ tags.next_page_number }}">Next</a></li>
+                {% else %}
+                    <li class="disabled"><span>&raquo;</span></li>
+                {% endif %}
+            </ul>
+        {% endif %}
+    </div>
 
 
 {% endblock %}
