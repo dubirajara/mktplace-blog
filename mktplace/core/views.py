@@ -1,5 +1,5 @@
-from django.views.generic import ListView, TemplateView
 from django.conf import settings
+from django.views.generic import ListView, TemplateView
 
 from mktplace.blog.models import Post
 

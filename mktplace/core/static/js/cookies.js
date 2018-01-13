@@ -12,13 +12,13 @@ var Cookielaw = {
         document.cookie = name + "=" + value + expires + "; path=/";
     },
 
-    getCookie: function(cname) {
+    getCookie: function (cname) {
         var name = cname + "=";
         var ca = document.cookie.split(';');
-        for(var i=0; i<ca.length; i++) {
+        for (var i = 0; i < ca.length; i++) {
             var c = ca[i];
-            while (c.charAt(0)==' ') c = c.substring(1);
-            if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+            while (c.charAt(0) == ' ') c = c.substring(1);
+            if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
         }
         return "";
     },
@@ -36,7 +36,7 @@ var Cookielaw = {
 };
 
 /* Js mode */
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function (event) {
     var el = document.querySelector("#barraaceptacion.BannerJsMode");
     if (el) {
         if (!Cookielaw.getCookie("cookielaw_accepted")) {
