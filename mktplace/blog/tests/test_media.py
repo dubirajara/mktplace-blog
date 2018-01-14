@@ -15,4 +15,5 @@ class MediaTestUrl(TestCase):
         assert settings.DEBUG
 
     def test_media(self):
-        assert urlpatterns
+        if settings.DEBUG:
+            assert urlpatterns
