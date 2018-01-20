@@ -10,10 +10,10 @@ class MediaTestUrl(TestCase):
 
     def setUp(self):
         settings.DEBUG = True
+        self.urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
     def test_debug(self):
         assert settings.DEBUG
 
     def test_media(self):
-        if settings.DEBUG:
-            assert urlpatterns
+        assert self.urlpatterns
