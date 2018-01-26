@@ -31,3 +31,12 @@ class BlogTest(TestCase):
         self.assertTemplateUsed(self.response, 'blog.html')
         self.assertTemplateUsed(self.response, 'baseblog.html')
         self.assertTemplateUsed(self.response, 'footer.html')
+
+    def test_blog_links(self):
+        """check href link in blog"""
+        contents = (
+            'href="{}"'.format(r('post_details', self.blog.slug)),
+        )
+        for expected in contents:
+            with self.subTest():
+                self.assertContains(self.response, expected)
