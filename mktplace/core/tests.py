@@ -47,3 +47,10 @@ class HomeTest(TestCase):
     def test_csrf(self):
         """HTML must contain csrf"""
         self.assertContains(self.response, 'csrfmiddlewaretoken')
+
+    def test_html(self):
+        contents = (self.blog.title, self.blog.photo, self.blog.content)
+
+        with self.subTest():
+            for expected in contents:
+                self.assertContains(self.response, expected)
