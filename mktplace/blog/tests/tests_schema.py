@@ -23,6 +23,7 @@ class SchemaTestCase(TestCase):
         )
 
     def test_all_posts(self):
+        """GET all posts graphql schema"""
         query = '''
         query{
           allPosts{
@@ -56,6 +57,7 @@ class SchemaTestCase(TestCase):
         self.assertEqual(json.loads(prettified_data), expected)
 
     def test_all_users(self):
+        """GET all users graphql schema"""
         query = '''
         query{
           allUsers{
