@@ -49,6 +49,7 @@ class HomeTest(TestCase):
         self.assertContains(self.response, 'csrfmiddlewaretoken')
 
     def test_html(self):
+        """Test contents html"""
         contents = (self.blog.title, self.blog.photo, self.blog.content)
 
         with self.subTest():
