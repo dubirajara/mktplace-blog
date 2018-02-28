@@ -84,6 +84,7 @@ class SchemaTestCase(TestCase):
         self.assertEqual(json.loads(prettified_data), expected)
 
     def test_resolve_post_id(self):
+        """GET id posts graphql schema"""
         query = ('''
         query{
           post(id:%s){
@@ -116,6 +117,7 @@ class SchemaTestCase(TestCase):
         self.assertEqual(json.loads(prettified_data), expected)
 
     def test_resolve_post_title(self):
+        """GET title posts graphql schema"""
         query = '''
         query{
           post(title:"test app"){
