@@ -1,4 +1,4 @@
-Django==2.0.3
+Django==2.0.4
 dj-config-url==0.1.1
 django-cookie-law==2.0.0
 dj-database-url==0.5.0
