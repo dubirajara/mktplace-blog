@@ -12,7 +12,7 @@ except requests.exceptions.HTTPError as err:
     print(err)
     sys.exit(1)
 
-# 55715
+# 55681
 # print(len(r.text))
 
 def bot_sendmsg(bot_message):
@@ -24,7 +24,7 @@ def bot_sendmsg(bot_message):
     requests.get(send_msg)
 
 
-match = 55715
+match = 55681
 
 if len(r.text) != match:
     message = f'Hola @dalbero, la pagina web {url} ha sido actualizada!!!'
