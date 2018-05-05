@@ -1,7 +1,7 @@
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView
 
+from mktplace.blog.mixins import TagsListMixin
 from .models import Post
 
 
@@ -23,22 +23,4 @@ class PostDetails(DetailView):
         return get_object_or_404(Post, slug=self.kwargs.get("slug"))
 
 
-def by_tags(request, tags):
-    queryset = Post.objects.filter(tags=tags)
-
-    page = request.GET.get('page', 1)
-
-    paginator = Paginator(queryset, 9)
-
-    try:
-        tags = paginator.page(page)
-    except PageNotAnInteger:
-        tags = paginator.page(1)
-    except EmptyPage:
-        tags = paginator.page(paginator.num_pages)
-
-    context = {
-        'tags': tags,
-    }
-
-    return render(request, 'tags.html', context)
+tags_list = TagsListMixin.as_view()
