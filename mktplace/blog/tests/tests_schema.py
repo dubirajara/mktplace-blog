@@ -92,7 +92,7 @@ class SchemaTestCase(TestCase):
                     id
                     username
                     email
-                    } 
+                    }
                 id
                 title
             }
@@ -125,7 +125,7 @@ class SchemaTestCase(TestCase):
                     id
                     username
                     email
-                    } 
+                    }
                 id
                 title
             }
@@ -156,7 +156,7 @@ class SchemaTestCase(TestCase):
                     id
                     username
                     email
-                    } 
+                    }
             }
         ''' % self.blog.id)
 
@@ -180,7 +180,7 @@ class SchemaTestCase(TestCase):
                     id
                     username
                     email
-                    } 
+                    }
             }
         '''
         result = schema.execute(query)

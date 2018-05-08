@@ -44,7 +44,6 @@ class Query(graphene.ObjectType):
         if title is not None:
             return Post.objects.get(title=title)
 
-
     def resolve_user(self, info, **kwargs):
         id = kwargs.get('id')
         username = kwargs.get('username')
