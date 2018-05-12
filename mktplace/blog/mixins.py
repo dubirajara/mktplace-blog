@@ -45,7 +45,6 @@ class FormListMixin(FormView):
         return context
 
     def form_valid(self, form):
-        form.clean()
         messages.success(
             self.request,
             'Correo enviado correctamente! Gracias por contactar con nosotros. En breve te contestaremos.')
