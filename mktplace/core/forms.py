@@ -1,5 +1,7 @@
 from django import forms
-from django.core import mail
+from django.conf import settings
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 
 class ContactForm(forms.Form):
@@ -45,7 +47,21 @@ class ContactForm(forms.Form):
         name = cleaned_data.get('name')
         email = cleaned_data.get('email')
         message = cleaned_data.get('message')
-        if not name and not email and not message:
+
+        context = {
+            'name': name,
+            'email': email,
+            'message': message
+        }
+
+        msg_plain = render_to_string('email.txt', context)
+
+        if not context:
             raise forms.ValidationError('You have to write something!')
         else:
-            mail.send_mail(name, message, email, ['admin@example.com'])
+            send_mail(
+                'Formulario Contacto Marketing',
+                msg_plain,
+                email,
+                [settings.DEFAULT_FROM_EMAIL]
+            )
