@@ -149,3 +149,5 @@ META_TITLE = config('META_TITLE')
 GRAPHENE = {
     'SCHEMA': 'blog.schema.schema'  # Where your Graphene schema lives
 }
+
+EMAIL_BACKEND = config('EMAIL_BACKEND')

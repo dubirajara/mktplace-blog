@@ -467,19 +467,16 @@
                     <div class="col-sm-6">
                         <div id="contact-form-section">
                             <div class="status alert alert-success" style="display: none"></div>
-                            <form id="contact-form" class="contact" accept-charset='UTF-8'
-                                  action="https://formcarry.com/s/Sks5fJ8JM" method='POST'>
+                            <form action="." id="contact-form" class="contact" method='post' role="form">
                                 {% csrf_token %}
                                 <div class="form-group">
-                                    <input type="text" name="name" class="form-control name-field" required="required"
-                                           placeholder="Nombre"></div>
-                                <div class="form-group">
-                                    <input type="email" name="email" class="form-control mail-field" required="required"
-                                           placeholder="Correo">
+                                    {{ form.name }}
                                 </div>
                                 <div class="form-group">
-                                    <textarea name="message" id="message" required="required" class="form-control"
-                                              rows="8" placeholder="Mensaje"></textarea>
+                                  {{ form.email }}
+                                </div>
+                                <div class="form-group">
+                                 {{ form.message }}
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Enviar</button>
