@@ -49,4 +49,3 @@ class FormListMixin(FormView):
             self.request,
             'Correo enviado correctamente! Gracias por contactar con nosotros. En breve te contestaremos.')
         return super().form_valid(form)
-
