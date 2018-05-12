@@ -7,6 +7,11 @@
 {% load cookielaw_tags %}
 
 {% block content %}
+<style>
+.status {
+    font-size: 16px;
+}
+</style>
     <link rel="stylesheet" href="{% static 'css/cookies.css' %}">
     <section id="home">
         <div class="home-pattern"></div>
@@ -467,6 +472,13 @@
                     <div class="col-sm-6">
                         <div id="contact-form-section">
                             <div class="status alert alert-success" style="display: none"></div>
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="status alert alert-success">
+                                    <p><b>{{ message }}</b></p>
+                                    </div>
+                                {% endfor %}
+                            {% else %}
                             <form action="." id="contact-form" class="contact" method='post' role="form">
                                 {% csrf_token %}
                                 <div class="form-group">
@@ -482,6 +494,7 @@
                                     <button type="submit" class="btn btn-primary">Enviar</button>
                                 </div>
                             </form>
+                        {% endif %}
                         </div>
                     </div>
                 </div>

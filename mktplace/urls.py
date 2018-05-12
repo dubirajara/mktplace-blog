@@ -20,15 +20,15 @@ from django.urls import include, path
 from django.views.generic import TemplateView
 from graphene_django.views import GraphQLView
 
-from mktplace.core.views import HomeView, success
+from mktplace.core.views import home
 from .blog.schema import schema
 
 urlpatterns = [
-    path('', HomeView.as_view(), name='home'),
+    path('', home, name='home'),
     path('mktplaceadmin/', admin.site.urls),
     path('blog/', include('mktplace.blog.urls')),
     path('summernote/', include('django_summernote.urls')),
-    path('success/', success),
+    # path('success/', success),
     path('robots.txt/', TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
     path('graphql', GraphQLView.as_view(graphiql=True, schema=schema)),
 
