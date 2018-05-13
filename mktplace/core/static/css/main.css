@@ -1195,7 +1195,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contact-address {
-    background-color: #fff;
     height: 390px;
     padding-top: 70px
 }
@@ -1254,7 +1253,6 @@ h1, h2, h3, h4, h5, h6 {
 
 #contact-form-section {
     padding: 35px;
-    background-color: #FFF;
     height: 390px;
 }
 
