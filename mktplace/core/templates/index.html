@@ -472,10 +472,16 @@
                     <div class="col-sm-6">
                         <div id="contact-form-section">
                             <div class="status alert alert-success" style="display: none"></div>
+                        {% if form.errors %}
+                        <div class="status alert alert-danger">
+                            <p>{{ form.non_field_errors }}</p>
+                        </div>
+                        {% endif %}
+
                             {% if messages %}
                                 {% for message in messages %}
                                     <div class="status alert alert-success">
-                                    <p><b>{{ message }}</b></p>
+                                    <p>{{ message }}</p>
                                     </div>
                                 {% endfor %}
                             {% else %}
