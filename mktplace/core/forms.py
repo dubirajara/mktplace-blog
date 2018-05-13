@@ -2,6 +2,7 @@ from django import forms
 from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from django.core.validators import validate_email
 
 
 class ContactForm(forms.Form):
@@ -48,6 +49,8 @@ class ContactForm(forms.Form):
         email = cleaned_data.get('email')
         message = cleaned_data.get('message')
 
+        validate_email(email)
+
         context = {
             'name': name,
             'email': email,
@@ -56,12 +59,19 @@ class ContactForm(forms.Form):
 
         msg_plain = render_to_string('email.txt', context)
 
-        if not context:
-            raise forms.ValidationError('You have to write something!')
-        else:
-            send_mail(
-                'Formulario Contacto Marketing',
-                msg_plain,
-                email,
-                [settings.DEFAULT_FROM_EMAIL]
-            )
+        send_mail(
+            'Formulario Contacto Marketing',
+            msg_plain,
+            email,
+            [settings.DEFAULT_FROM_EMAIL]
+        )
+
+        # if not context:
+        #     raise forms.ValidationError('You have to write something!')
+        # else:
+        #     send_mail(
+        #         'Formulario Contacto Marketing',
+        #         msg_plain,
+        #         email,
+        #         [settings.DEFAULT_FROM_EMAIL]
+        #     )
