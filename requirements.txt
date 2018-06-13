@@ -7,7 +7,7 @@ django-summernote==0.8.8.7
 <<<<<<< HEAD
 django-tagulous==0.13.2
 =======
-django-tagulous==0.13.1
+django-tagulous==0.13.2
 >>>>>>> 3f548ec... Update django-tagulous from 0.13.0 to 0.13.1
 graphene-django==2.0.0
 gunicorn==19.8.1
