@@ -10,3 +10,4 @@ __pycache__
 _pgbackup
 staticsfiles
 media
+script.py

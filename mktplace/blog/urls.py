@@ -15,12 +15,10 @@ Including another URLconf
 """
 from django.urls import path
 
-from mktplace.blog import views
 from .views import PostList, PostDetails, tags_list
 
 urlpatterns = [
     path('', PostList.as_view(), name='post_list'),
     path('<slug:slug>/', PostDetails.as_view(), name='post_details'),
-    # path('tags/<tags>/', views.by_tags, name='tag')
     path('tags/<tags>/', tags_list, name='tag')
 ]
