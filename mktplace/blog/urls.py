@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.urls import path
 
-from mktplace.blog import views
 from .views import PostList, PostDetails, tags_list
 
 urlpatterns = [
