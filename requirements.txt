@@ -6,6 +6,7 @@ django-cookie-law==2.0.1
 django-summernote==0.8.8.7
 django-tagulous==0.13.2
 Django==2.0.6
+flake8==3.5.0
 graphene-django==2.0.0
 gunicorn==19.8.1
 psycopg2-binary==2.7.4
