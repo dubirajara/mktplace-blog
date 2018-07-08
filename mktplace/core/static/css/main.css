@@ -1568,3 +1568,7 @@ B.textag {
     border-radius: 5px;
     transition: all .15s ease-in-out;
 }
+
+.img-responsive {
+    max-width: 70% !important;
+}
