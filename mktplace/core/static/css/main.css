@@ -1572,3 +1572,8 @@ B.textag {
 .img-responsive {
     max-width: 70% !important;
 }
+
+.center-block {
+padding-top: 3% !important;
+
+}
