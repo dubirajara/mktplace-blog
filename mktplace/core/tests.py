@@ -1,8 +1,10 @@
 from django.contrib.auth.models import User
 from django.shortcuts import resolve_url as r
+from django.core import mail
 from django.test import TestCase, Client
 
 from mktplace.blog.models import Post
+from .forms import ContactForm
 
 
 class HomeTest(TestCase):
@@ -55,3 +57,77 @@ class HomeTest(TestCase):
         with self.subTest():
             for expected in contents:
                 self.assertContains(self.response, expected)
+
+
+class ContactFormTest(TestCase):
+    def setUp(self):
+        self.response = self.client.get(r('home'))
+
+    def test_has_form_on_context(self):
+        self.assertIsInstance(self.response.context['form'], ContactForm)
+
+    def test_form_has_fields(self):
+        """Form must have 4 fields"""
+        form = ContactForm()
+        expected = ['name', 'email', 'message']
+        self.assertSequenceEqual(expected, list(form.fields))
+
+    def test_form_html(self):
+        contents = [
+            'form-control name-field',
+            'required',
+            'placeholder',
+            'name',
+        ]
+
+        for expected in contents:
+            with self.subTest():
+                self.assertContains(self.response, expected)
+
+    def test_forms_valid(self):
+        form_data = {'name': 'Diego',
+                     'email': 'diego@mail.com',
+                     'message': 'test form django'
+                     }
+        form = ContactForm(data=form_data)
+        self.assertTrue(form.is_valid())
+
+    def test_forms_invalid(self):
+        form_data = {'name': '',
+                     'email': '',
+                     'message': ''
+                     }
+        form = ContactForm(data=form_data)
+        self.assertFalse(form.is_valid())
+
+    def test_forms_email_error(self):
+        form_data = {'name': 'Diego',
+                     'email': 'diegomail.com',
+                     'message': 'test form django'
+                     }
+        response = self.client.post(r('home'), form_data)
+        self.assertFormError(response, 'form', 'email', 'Introduzca una dirección de correo electrónico válida.')
+
+    def test_forms_blank_error(self):
+        form_data = {'name': '',
+                     'email': '',
+                     'message': ''
+                     }
+        response = self.client.post(r('home'), form_data)
+        self.assertFormError(response, 'form', 'name', 'Este campo es obligatorio.')
+
+
+class EmailTest(TestCase):
+    def test_send_email(self):
+        # Send message.
+        mail.send_mail(
+            'Subject here', 'Here is the message.',
+            'from@example.com', ['to@example.com'],
+            fail_silently=False,
+        )
+
+        # Test that one message has been sent.
+        self.assertEqual(len(mail.outbox), 1)
+
+        # Verify that the subject of the first message is correct.
+        self.assertEqual(mail.outbox[0].subject, 'Subject here')
