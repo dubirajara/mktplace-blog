@@ -67,7 +67,7 @@ class ContactFormTest(TestCase):
         self.assertIsInstance(self.response.context['form'], ContactForm)
 
     def test_form_has_fields(self):
-        """Form must have 4 fields"""
+        """Form must have 3 fields"""
         form = ContactForm()
         expected = ['name', 'email', 'message']
         self.assertSequenceEqual(expected, list(form.fields))
@@ -75,9 +75,9 @@ class ContactFormTest(TestCase):
     def test_form_html(self):
         contents = [
             'form-control name-field',
-            'required',
-            'placeholder',
-            'name',
+            'form-control mail-field',
+            'textarea',
+            'button type="submit" class="btn btn-primary"',
         ]
 
         for expected in contents:
@@ -116,18 +116,39 @@ class ContactFormTest(TestCase):
         response = self.client.post(r('home'), form_data)
         self.assertFormError(response, 'form', 'name', 'Este campo es obligatorio.')
 
+    def test_csrf(self):
+        """HTML must contain csrf"""
+        self.assertContains(self.response, 'csrfmiddlewaretoken')
 
-class EmailTest(TestCase):
-    def test_send_email(self):
-        # Send message.
-        mail.send_mail(
-            'Subject here', 'Here is the message.',
-            'from@example.com', ['to@example.com'],
-            fail_silently=False,
-        )
 
-        # Test that one message has been sent.
+class ContactEmailPostValid(TestCase):
+    def setUp(self):
+        form_data = {'name': 'Diego',
+                     'email': 'diego@mail.com',
+                     'message': 'test form django'
+                     }
+        self.client.post(r('home'), form_data)
+        self.email = mail.outbox[0]
+
+    def test_forms_email_submitted(self):
         self.assertEqual(len(mail.outbox), 1)
 
-        # Verify that the subject of the first message is correct.
-        self.assertEqual(mail.outbox[0].subject, 'Subject here')
+    def test_subscription_email_subject(self):
+        expect = 'Formulario Contacto Marketing'
+        self.assertEqual(expect, self.email.subject)
+
+    def test_subscription_email_from(self):
+        expect = 'diego@mail.com'
+        self.assertEqual(expect, self.email.from_email)
+
+    def test_subscription_email_to(self):
+        expect = ['admin@exemple.com']
+        self.assertEqual(expect, self.email.to)
+
+    def test_subscription_email_body(self):
+        contents = ['Diego',
+                    'diego@mail.com',
+                    'test form django']
+        for content in contents:
+            with self.subTest():
+                self.assertIn(content, self.email.body)
