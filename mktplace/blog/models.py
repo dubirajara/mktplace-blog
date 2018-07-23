@@ -36,7 +36,7 @@ class Post(models.Model):
         unique_slug = slug
         num = 1
         while Post.objects.filter(slug=unique_slug).exists():
-            unique_slug = '{}-{}'.format(slug, num)
+            unique_slug = f'{slug}-{num}'
             num += 1
         return unique_slug
 
