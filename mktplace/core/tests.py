@@ -34,13 +34,13 @@ class HomeTest(TestCase):
     def test_home_links(self):
         """check href link in home"""
         contents = (
-            'href="{}"'.format(r('post_list')),
-            'href="{}"'.format(r('post_details', self.blog.slug)),
-            'href="{}"'.format('mailto:info@themarketingplace.es'),
-            'href="{}"'.format('https://www.facebook.com/themarketingplace/'),
-            'href="{}"'.format('https://twitter.com/TMarketingPlace'),
-            'href="{}"'.format('https://www.linkedin.com/company/the-marketing-place/'),
-            'href="{}"'.format('http://themarketingplace.es/'),
+            f'href="{r("post_list")}"',
+            f'href="{r("post_details", self.blog.slug)}"',
+            f'href="{"mailto:info@themarketingplace.es"}"',
+            f'href="{"https://www.linkedin.com/company/the-marketing-place/"}"',
+            f'href="{"https://www.facebook.com/themarketingplace/"}"',
+            f'href="{"https://twitter.com/TMarketingPlace"}"',
+            f'href="{"http://themarketingplace.es/"}"',
         )
         for expected in contents:
             with self.subTest():

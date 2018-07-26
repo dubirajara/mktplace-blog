@@ -85,19 +85,19 @@ class SchemaTestCase(TestCase):
 
     def test_resolve_post_id(self):
         """GET id posts graphql schema"""
-        query = ('''
-        query{
-          post(id:%s){
-              user {
+        query = (f'''
+        query{{
+          post(id:{self.blog.id}){{
+              user {{
                     id
                     username
                     email
-                    }
+                    }}
                 id
                 title
-            }
-        }
-        ''' % self.blog.id)
+            }}
+        }}
+        ''')
         result = schema.execute(query)
         assert not result.errors
         expected = {
@@ -150,15 +150,15 @@ class SchemaTestCase(TestCase):
         self.assertEqual(json.loads(prettified_data), expected)
 
     def test_resolve_user_id(self):
-        query = ('''
-        query{
-          user(id:%s){
+        query = (f'''
+        query{{
+          user(id:{self.blog.id}){{
                     id
                     username
                     email
-                    }
-            }
-        ''' % self.blog.id)
+                    }}
+            }}
+        ''')
 
         result = schema.execute(query)
         assert not result.errors

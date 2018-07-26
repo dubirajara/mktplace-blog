@@ -35,7 +35,7 @@ class BlogTest(TestCase):
     def test_blog_links(self):
         """check href link in blog"""
         contents = (
-            'href="{}"'.format(r('post_details', self.blog.slug)),
+            f'href="{r("post_details", self.blog.slug)}"',
         )
         for expected in contents:
             with self.subTest():

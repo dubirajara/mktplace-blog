@@ -6,11 +6,10 @@ from mktplace.urls import urlpatterns
 
 
 class MediaTestUrl(TestCase):
-    urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    settings.DEBUG = True
 
     def setUp(self):
-        settings.DEBUG = True
-        self.urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+        self.urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
     def test_debug(self):
         assert settings.DEBUG
