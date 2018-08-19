@@ -1,4 +1,4 @@
-from mktplace.blog.mixins import FormListMixin
+from .mixins import FormListMixin
 
 
 home = FormListMixin.as_view()
