@@ -5,7 +5,7 @@ django-cookie-law==2.0.1
 django-summernote==0.8.10.0
 Django==2.1.1
 flake8==3.5.0
-graphene-django==2.1.0
+graphene-django==2.2.0
 gunicorn==19.9.0
 psycopg2-binary==2.7.5
 python-decouple==3.1
