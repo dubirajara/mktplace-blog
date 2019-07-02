@@ -3,7 +3,7 @@ dj-database-url==0.5.0
 django-cookie-law==2.0.1
 django-summernote==0.8.11.4
 django-tagulous==0.14.0
-Django==2.2.2
+Django==2.2.3
 flake8==3.7.7
 graphene-django==2.3.2
 gunicorn==19.9.0
