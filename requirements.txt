@@ -1,6 +1,7 @@
 -e git+https://github.com/dubirajara/django-tagulous.git@master#egg=django_tagulous-django3.0
 -e git+https://github.com/wuuuduu/django-summernote.git@django_3_0__support#egg=django-summernote-django3.0
 -e git+https://github.com/dubirajara/django-cookie-law@master#egg=django-cookie-law-django3.0
+-e git+https://github.com/mbi/django-classy-tags.git@master#egg=django-classy-tags-django3.0
 dj-config-url==0.1.1
 dj-database-url==0.5.0
 Django==3.0
