@@ -4,7 +4,7 @@
 -e git+https://github.com/mbi/django-classy-tags.git@master#egg=django-classy-tags-django3.0
 dj-config-url==0.1.1
 dj-database-url==0.5.0
-Django==3.0.2
+Django==3.0.3
 graphene-django==2.8.0
 gunicorn==20.0.4
 flake8==3.7.9
