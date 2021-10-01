@@ -8,5 +8,5 @@ graphene-django==2.13.0
 gunicorn==20.0.4
 flake8==3.8.4
 psycopg2-binary==2.8.6
-python-decouple==3.3
+python-decouple==3.5
 whitenoise==5.2.0
